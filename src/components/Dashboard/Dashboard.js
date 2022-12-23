@@ -3,9 +3,10 @@ import React from 'react'
 // Components
 import ASOD from '../ASOD/ASOD'
 import EONET from '../Asteroids/Asteroids'
+import Rover from '../Rover/Rover'
 
 
-const Dashboard = ({asod, eonet, neo}) => {
+const Dashboard = ({asod, eonet, neo, rover}) => {
   return (
     <div class='flex'>
       <div>
@@ -13,6 +14,9 @@ const Dashboard = ({asod, eonet, neo}) => {
       </div>
       <div>
         <EONET neo={neo}/>
+      </div>
+      <div>
+        <Rover rover={rover}/>
       </div>
     </div>
   )
