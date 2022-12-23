@@ -1,9 +1,7 @@
 import React from 'react'
 
 const ASOD = ({asod}) => {
-  console.log(asod);
-
-
+  
   return (
     <div class='border border-sky-500 content-center flex flex-col'>
       <h2 class='text-center text-lg'>Astronomy Picture of the Day</h2>
