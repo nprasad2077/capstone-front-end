@@ -1,8 +1,20 @@
 import React from 'react'
 
-const Dashboard = () => {
+// Components
+import ASOD from '../ASOD/ASOD'
+import EONET from '../Asteroids/Asteroids'
+
+
+const Dashboard = ({asod, eonet, neo}) => {
   return (
-    <div>Dashboard</div>
+    <div class='flex'>
+      <div>
+        <ASOD asod={asod}/>
+      </div>
+      <div>
+        <EONET neo={neo}/>
+      </div>
+    </div>
   )
 }
 
