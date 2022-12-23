@@ -9,20 +9,20 @@ const EONET = ({neo}) => {
     console.log(neo && neoReturn[0].is_potentially_hazardous_asteroid)
 
     const rocksMap = neo && neoReturn.map((asteroid, index) => {
-        return <tr key={index}><td>{asteroid.name}</td><td>{asteroid.estimated_diameter.miles.estimated_diameter_max} miles</td><td>{asteroid.is_potentially_hazardous_asteroid ? '☢️' : '❎'}</td><td>{asteroid.close_approach_data[0].close_approach_date_full}</td></tr>})
+        return <tr key={index}><td class="border border-slate-600">{asteroid.name}</td><td class="border border-slate-600">{asteroid.estimated_diameter.miles.estimated_diameter_max} miles</td><td class="border border-slate-600">{asteroid.is_potentially_hazardous_asteroid ? '☢️' : '❎'}</td><td class="border border-slate-600">{asteroid.close_approach_data[0].close_approach_date_full}</td></tr>})
 
 
 
   return (
     <div class='border border-sky-500'>
         <h2>Asteroids - Near Earth Objects</h2>
-        <table>
+        <table class='table-auto border-collapse border border-slate-500'>
             <thead>
                 <tr>
-                    <th>Asteroid Name</th>
-                    <th>Size {'(diameter)'} </th>
-                    <th>Potential Hazardous Asteroid?</th>
-                    <th>Approach Date</th>
+                    <th class='border border-slate-400'>Asteroid Name</th>
+                    <th class='border border-slate-400'>Size {'(max diameter)'} </th>
+                    <th class='border border-slate-400'>Potential Hazardous Asteroid?</th>
+                    <th class='border border-slate-400'>Approach Date</th>
                 </tr>
             </thead>
             <tbody>
