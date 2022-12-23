@@ -9,7 +9,7 @@ const EONET = ({neo}) => {
     console.log(neo && neoReturn[0].is_potentially_hazardous_asteroid)
 
     const rocksMap = neo && neoReturn.map((asteroid, index) => {
-        return <tr key={index}><td>{asteroid.name}</td><td>{asteroid.estimated_diameter.miles.estimated_diameter_max} miles</td><td>{asteroid.is_potentially_hazardous_asteroid ? '☢️' : '❎'}</td></tr>})
+        return <tr key={index}><td>{asteroid.name}</td><td>{asteroid.estimated_diameter.miles.estimated_diameter_max} miles</td><td>{asteroid.is_potentially_hazardous_asteroid ? '☢️' : '❎'}</td><td>{asteroid.close_approach_data[0].close_approach_date_full}</td></tr>})
 
 
 
