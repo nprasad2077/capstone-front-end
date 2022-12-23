@@ -4,10 +4,10 @@ import React from 'react'
 import ASOD from '../ASOD/ASOD'
 
 
-const Dashboard = () => {
+const Dashboard = ({asod}) => {
   return (
     <div>
-      <ASOD />
+      <ASOD asod={asod}/>
     </div>
   )
 }
