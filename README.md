@@ -1,3 +1,13 @@
+# Capstone Project Front-end
+
+## Nikhil Prasad
+
+### Technologies Used
+
+React.js
+Tailwind CSS
+Axios
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
