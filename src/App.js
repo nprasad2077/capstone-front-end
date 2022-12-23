@@ -8,7 +8,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 
 const App = () => {
   return (
-    <div class='bg-slate-700 text-white'>
+    <div class='bg-slate-700 text-slate-100'>
       <Header />
       <Dashboard />
     </div>

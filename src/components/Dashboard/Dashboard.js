@@ -1,8 +1,14 @@
 import React from 'react'
 
+// Components
+import ASOD from '../ASOD/ASOD'
+
+
 const Dashboard = () => {
   return (
-    <div>Dashboard</div>
+    <div>
+      <ASOD />
+    </div>
   )
 }
 
