@@ -20,11 +20,12 @@ const Rover = ({rover}) => {
   const dateCHEM = []
   const dateNAVCAM = []
   const [displayFHAZ, setDisplayFHAZ] = useState('')
+  const [displayRHAZ, setDisplayRHAZ] = useState('')
+  const [displayMAST, setDisplayMAST] = useState('')
+  const [displayCHEM, setDisplayCHEM] = useState('')
+  const [displayNAVCAM, setDisplayNAVCAM] = useState('')
  
 
-  // let arrayRover = rover && rover.forEach(element => {
-  //   console.log(element);
-  // });
 
   function parseRovers(rov) {
     if (rov.camera.name === 'FHAZ') {
@@ -65,6 +66,50 @@ const Rover = ({rover}) => {
     const random = Math.floor(Math.random() * FHAZ.length)
     console.log(FHAZ[random]);
     setDisplayFHAZ(FHAZ[random])
+    setDisplayNAVCAM('')
+    setDisplayRHAZ('')
+    setDisplayMAST('')
+    setDisplayCHEM('')
+  }
+
+  function randomRHAZ () {
+    const random = Math.floor(Math.random() * RHAZ.length)
+    console.log(RHAZ[random]);
+    setDisplayRHAZ(RHAZ[random])
+    setDisplayFHAZ('')
+    setDisplayNAVCAM('')
+    setDisplayMAST('')
+    setDisplayCHEM('')
+  }
+
+  function randomMAST () {
+    const random = Math.floor(Math.random() * MAST.length)
+    console.log(MAST[random]);
+    setDisplayMAST(MAST[random])
+    setDisplayFHAZ('')
+    setDisplayRHAZ('')
+    setDisplayNAVCAM('')
+    setDisplayCHEM('')
+  }
+
+  function randomCHEM () {
+    const random = Math.floor(Math.random() * CHEM.length)
+    console.log(CHEM[random]);
+    setDisplayCHEM(CHEM[random])
+    setDisplayFHAZ('')
+    setDisplayRHAZ('')
+    setDisplayMAST('')
+    setDisplayNAVCAM('')
+  }
+
+  function randomNAVCAM () {
+    const random = Math.floor(Math.random() * NAVCAM.length)
+    console.log(NAVCAM[random]);
+    setDisplayNAVCAM(NAVCAM[random])
+    setDisplayFHAZ('')
+    setDisplayRHAZ('')
+    setDisplayMAST('')
+    setDisplayCHEM('')
   }
 
 
@@ -75,11 +120,21 @@ const Rover = ({rover}) => {
   return (
     <div class='border border-sky-500 content-center flex flex-col'>
       <h2 class='text-center text-2xl subpixel-antialiased font-bold'>Curiosity Rover</h2>
+      <button onClick={randomNAVCAM}>NAVCAM</button>
       <button onClick={randomFHAZ}>FHAZ</button>
+      <button onClick={randomRHAZ}>RHAZ</button>
+      <button onClick={randomMAST}>MAST</button>
+      <button onClick={randomCHEM}>CHEM</button>
+      <p>NAVCAM: </p>
+      <img src={displayNAVCAM}></img>
       <p>FHAZ: </p>
       <img src={displayFHAZ}></img>
-
-
+      <p>RHAZ: </p>
+      <img src={displayRHAZ}></img>
+      <p>MAST: </p>
+      <img src={displayMAST}></img>
+      <p>CHEM: </p>
+      <img src={displayCHEM}></img>
     </div>
   )
 }
