@@ -73,8 +73,8 @@ const Rover = ({rover}) => {
 
 
   return (
-    <div>
-      <h2>Curiosity Rover</h2>
+    <div class='border border-sky-500 content-center flex flex-col'>
+      <h2 class='text-center text-2xl subpixel-antialiased font-bold'>Curiosity Rover</h2>
       <button onClick={randomFHAZ}>FHAZ</button>
       <p>FHAZ: </p>
       <img src={displayFHAZ}></img>

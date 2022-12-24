@@ -8,14 +8,14 @@ import Rover from '../Rover/Rover'
 
 const Dashboard = ({asod, eonet, neo, rover}) => {
   return (
-    <div class='flex'>
-      <div>
+    <div class='flex mt-6'>
+      <div class='w-1/3'>
         <ASOD asod={asod}/>
       </div>
-      <div>
+      <div class='w-1/3'>
         <EONET neo={neo}/>
       </div>
-      <div>
+      <div class='w-1/3'>
         <Rover rover={rover}/>
       </div>
     </div>
