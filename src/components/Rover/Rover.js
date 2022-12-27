@@ -64,7 +64,7 @@ const Rover = ({rover}) => {
 
   function randomFHAZ () {
     const random = Math.floor(Math.random() * FHAZ.length)
-    console.log(FHAZ[random]);
+    // console.log(FHAZ[random]);
     setDisplayFHAZ(FHAZ[random])
     setDisplayNAVCAM('')
     setDisplayRHAZ('')
@@ -74,7 +74,7 @@ const Rover = ({rover}) => {
 
   function randomRHAZ () {
     const random = Math.floor(Math.random() * RHAZ.length)
-    console.log(RHAZ[random]);
+    // console.log(RHAZ[random]);
     setDisplayRHAZ(RHAZ[random])
     setDisplayFHAZ('')
     setDisplayNAVCAM('')
@@ -84,7 +84,7 @@ const Rover = ({rover}) => {
 
   function randomMAST () {
     const random = Math.floor(Math.random() * MAST.length)
-    console.log(MAST[random]);
+    // console.log(MAST[random]);
     setDisplayMAST(MAST[random])
     setDisplayFHAZ('')
     setDisplayRHAZ('')
@@ -94,7 +94,7 @@ const Rover = ({rover}) => {
 
   function randomCHEM () {
     const random = Math.floor(Math.random() * CHEM.length)
-    console.log(CHEM[random]);
+    // console.log(CHEM[random]);
     setDisplayCHEM(CHEM[random])
     setDisplayFHAZ('')
     setDisplayRHAZ('')
@@ -104,7 +104,7 @@ const Rover = ({rover}) => {
 
   function randomNAVCAM () {
     const random = Math.floor(Math.random() * NAVCAM.length)
-    console.log(NAVCAM[random]);
+    // console.log(NAVCAM[random]);
     setDisplayNAVCAM(NAVCAM[random])
     setDisplayFHAZ('')
     setDisplayRHAZ('')
