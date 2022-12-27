@@ -2,7 +2,8 @@ import React from 'react'
 import './App.css'
 import axios from 'axios'
 import { useState, useEffect } from 'react'
-
+import { Fade } from 'react-slideshow-image';
+import 'react-slideshow-image/dist/styles.css'
 // Components
 
 import Header from './components/Header/Header'
