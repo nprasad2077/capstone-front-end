@@ -8,6 +8,7 @@ import 'react-slideshow-image/dist/styles.css'
 
 import Header from './components/Header/Header'
 import Dashboard from './components/Dashboard/Dashboard'
+import DashboardTwo from './components/DashboardTwo/DashboardTwo';
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -76,8 +77,15 @@ const App = () => {
 
   return (
     <div class='bg-slate-700 text-slate-100'>
-      <Header />
-      <Dashboard asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate}/>
+      <div>
+        <Header />
+      </div>
+      <div>
+        <Dashboard asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate}/>
+      </div>
+      <div>
+        <DashboardTwo epic={epic} />
+      </div>
     </div>
   )
 }
