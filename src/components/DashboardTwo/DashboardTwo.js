@@ -9,10 +9,6 @@ const DashboardTwo = ({epic}) => {
         <div class='w-1/3'>
             <SlideShow epic={epic} />
         </div>
-        <div class='w-1/3'>
-            <EPIC epic={epic}/>
-
-        </div>
     </div>
   )
 }

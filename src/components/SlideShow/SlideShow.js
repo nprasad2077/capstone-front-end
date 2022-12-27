@@ -24,8 +24,8 @@ const SlideShow = ({epic}) => {
 
   const imagesCreate = epic && slideshowEpic.map((images) => imagesARR.push({original: images, thumbnail: images}))
 
-  console.log(slideshowEpicJpg)
-  console.log(imagesARR)
+  // console.log(slideshowEpicJpg)
+  // console.log(imagesARR)
   // console.log(images);
 
 
@@ -33,7 +33,11 @@ const SlideShow = ({epic}) => {
 
   return (
     <div class='border border-sky-500 content-center'>
-      <ImageGallery items={imagesARR} />
+      <h2 class='text-center text-2xl subpixel-antialiased font-bold'>Earth Polychromatic Imaging Camera {'(EPIC)'}</h2>
+      <div class='mt-4'>
+        <ImageGallery items={imagesARR} />
+      </div>
+      <p>This image was taken by NASA's EPIC camera onboard the NOAA DSCOVR spacecraft</p>
     </div>
   )
 }

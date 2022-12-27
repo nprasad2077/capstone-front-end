@@ -20,12 +20,6 @@ const Dashboard = ({asod, eonet, neo, rover, today, epic, roverDate}) => {
       <div class='w-1/3'>
         <Rover rover={rover} roverDate={roverDate}/>
       </div>
-      {/* <div class='w-1/4'>
-        <EPIC epic={epic} />
-      </div> */}
-      {/* <div class='w-1/4'>
-        <SlideShow epic={epic} />
-      </div> */}
     </div>
   )
 }
