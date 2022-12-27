@@ -13,6 +13,9 @@ const App = () => {
   const [eonet, setEonet] = useState('')
   const [neo, setNeo] = useState('')
   const [rover, setRover] = useState('')
+  let today = new Date().toISOString().slice(0, 10)
+
+  console.log(today);
 
   const getASOD = async () => {
     const response = await axios({
@@ -27,7 +30,7 @@ const App = () => {
   const getNEO = async () => {
     const response = await axios({
       method: 'get',
-      url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=2022-12-23&end_date=2022-12-23&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=2022-12-24&end_date=2022-12-27&api_key=${process.env.REACT_APP_NASA_API_KEY}`
     })
     .then(res =>
         setNeo(res.data))
@@ -36,12 +39,12 @@ const App = () => {
 
   // console.log(process.env.REACT_APP_NASA_API_KEY);
   // console.log(asod);
-  console.log(neo);
+  // console.log(neo);
 
   const getRover = async () => {
     const response = await axios({
       method: 'get',
-      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2021-12-24&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2021-12-27&api_key=${process.env.REACT_APP_NASA_API_KEY}`
     })
     .then(res => setRover(res.data))
     .catch(err => console.log(err))
@@ -54,13 +57,12 @@ const App = () => {
   }, [])
 
 
-  console.log(rover.photos);
 
 
   return (
     <div class='bg-slate-700 text-slate-100'>
       <Header />
-      <Dashboard asod={asod} eonet={eonet} neo={neo} rover={rover}/>
+      <Dashboard asod={asod} eonet={eonet} neo={neo} rover={rover} today={today}/>
     </div>
   )
 }
