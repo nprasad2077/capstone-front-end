@@ -5,6 +5,7 @@ import ASOD from '../ASOD/ASOD'
 import EONET from '../Asteroids/Asteroids'
 import Rover from '../Rover/Rover'
 import EPIC from '../EPIC/EPIC'
+import SlideShow from '../SlideShow/SlideShow'
 
 
 const Dashboard = ({asod, eonet, neo, rover, today, epic, roverDate}) => {
@@ -19,8 +20,11 @@ const Dashboard = ({asod, eonet, neo, rover, today, epic, roverDate}) => {
       <div class='w-1/4'>
         <Rover rover={rover} roverDate={roverDate}/>
       </div>
-      <div class='w-1/4'>
+      {/* <div class='w-1/4'>
         <EPIC epic={epic} />
+      </div> */}
+      <div class='w-1/4'>
+        <SlideShow />
       </div>
     </div>
   )
