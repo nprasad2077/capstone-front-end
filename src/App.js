@@ -16,8 +16,9 @@ const App = () => {
   const [rover, setRover] = useState('')
   const [epic, setEpic] = useState('')
   let today = new Date().toISOString().slice(0, 10)
+  let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
 
-  console.log(today);
+  console.log(roverDate);
 
   const getASOD = async () => {
     const response = await axios({
@@ -46,7 +47,7 @@ const App = () => {
   const getRover = async () => {
     const response = await axios({
       method: 'get',
-      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=2021-12-27&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=`+ roverDate +`&api_key=${process.env.REACT_APP_NASA_API_KEY}`
     })
     .then(res => setRover(res.data))
     .catch(err => console.log(err))
@@ -76,7 +77,7 @@ const App = () => {
   return (
     <div class='bg-slate-700 text-slate-100'>
       <Header />
-      <Dashboard asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic}/>
+      <Dashboard asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate}/>
     </div>
   )
 }

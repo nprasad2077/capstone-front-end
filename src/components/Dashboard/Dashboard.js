@@ -7,7 +7,7 @@ import Rover from '../Rover/Rover'
 import EPIC from '../EPIC/EPIC'
 
 
-const Dashboard = ({asod, eonet, neo, rover, today, epic}) => {
+const Dashboard = ({asod, eonet, neo, rover, today, epic, roverDate}) => {
   return (
     <div class='flex mt-6'>
       <div class='w-1/4'>
@@ -17,7 +17,7 @@ const Dashboard = ({asod, eonet, neo, rover, today, epic}) => {
         <EONET neo={neo} today={today}/>
       </div>
       <div class='w-1/4'>
-        <Rover rover={rover}/>
+        <Rover rover={rover} roverDate={roverDate}/>
       </div>
       <div class='w-1/4'>
         <EPIC epic={epic} />

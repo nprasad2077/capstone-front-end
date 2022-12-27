@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Rover = ({rover}) => {
+const Rover = ({rover, roverDate}) => {
   // console.log(rover && rover.photos[0].camera.name);
   const roverARR = rover.photos
   const FHAZ = []
@@ -135,6 +135,7 @@ const Rover = ({rover}) => {
       <img src={displayMAST}></img>
       <p>CHEM: </p>
       <img src={displayCHEM}></img>
+      <h2>Rover Date: {roverDate}</h2>
     </div>
   )
 }
