@@ -32,7 +32,7 @@ const SlideShow = ({epic}) => {
 
 
   return (
-    <div class='border border-sky-500 content-center'>
+    <div class='border border-sky-500 content-center text-center'>
       <h2 class='text-center text-2xl subpixel-antialiased font-bold'>Earth Polychromatic Imaging Camera {'(EPIC)'}</h2>
       <div class='mt-4'>
         <ImageGallery items={imagesARR} />

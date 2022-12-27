@@ -8,6 +8,12 @@ React.js
 Tailwind CSS
 Axios
 
+### NPM Packages
+
+-react-image-gallery
+-react-router-dom
+-axios
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
