@@ -4,9 +4,10 @@ import React from 'react'
 import ASOD from '../ASOD/ASOD'
 import EONET from '../Asteroids/Asteroids'
 import Rover from '../Rover/Rover'
+import EPIC from '../EPIC/EPIC'
 
 
-const Dashboard = ({asod, eonet, neo, rover, today}) => {
+const Dashboard = ({asod, eonet, neo, rover, today, epic}) => {
   return (
     <div class='flex mt-6'>
       <div class='w-1/3'>
@@ -17,6 +18,9 @@ const Dashboard = ({asod, eonet, neo, rover, today}) => {
       </div>
       <div class='w-1/3'>
         <Rover rover={rover}/>
+      </div>
+      <div>
+        <EPIC epic={epic} />
       </div>
     </div>
   )

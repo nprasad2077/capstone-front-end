@@ -13,6 +13,7 @@ const App = () => {
   const [eonet, setEonet] = useState('')
   const [neo, setNeo] = useState('')
   const [rover, setRover] = useState('')
+  const [epic, setEpic] = useState('')
   let today = new Date().toISOString().slice(0, 10)
 
   console.log(today);
@@ -39,7 +40,7 @@ const App = () => {
 
   // console.log(process.env.REACT_APP_NASA_API_KEY);
   // console.log(asod);
-  console.log(neo);
+  // console.log(neo);
 
   const getRover = async () => {
     const response = await axios({
@@ -50,11 +51,23 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
+  const getEPIC = async () => {
+    const response = await axios({
+      method: 'get',
+      url: `https://epic.gsfc.nasa.gov/api/natural/date/2022-12-25`
+    })
+    .then(res => setEpic(res.data))
+    .catch(err => console.log(err))
+  }
+
   useEffect(() => {
     getASOD()
     getNEO()
     getRover()
+    getEPIC()
   }, [])
+
+  // console.log(epic);
 
 
 
@@ -62,7 +75,7 @@ const App = () => {
   return (
     <div class='bg-slate-700 text-slate-100'>
       <Header />
-      <Dashboard asod={asod} eonet={eonet} neo={neo} rover={rover} today={today}/>
+      <Dashboard asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic}/>
     </div>
   )
 }
