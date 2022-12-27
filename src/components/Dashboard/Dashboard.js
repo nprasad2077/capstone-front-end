@@ -10,16 +10,16 @@ import EPIC from '../EPIC/EPIC'
 const Dashboard = ({asod, eonet, neo, rover, today, epic}) => {
   return (
     <div class='flex mt-6'>
-      <div class='w-1/3'>
+      <div class='w-1/4'>
         <ASOD asod={asod}/>
       </div>
-      <div class='w-1/3'>
+      <div class='w-1/4'>
         <EONET neo={neo} today={today}/>
       </div>
-      <div class='w-1/3'>
+      <div class='w-1/4'>
         <Rover rover={rover}/>
       </div>
-      <div>
+      <div class='w-1/4'>
         <EPIC epic={epic} />
       </div>
     </div>
