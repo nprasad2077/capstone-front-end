@@ -30,7 +30,7 @@ const App = () => {
   const getNEO = async () => {
     const response = await axios({
       method: 'get',
-      url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=2022-12-24&end_date=2022-12-27&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      url: `https://api.nasa.gov/neo/rest/v1/feed?start_date=`+ today +`&end_date=`+ today +`&api_key=${process.env.REACT_APP_NASA_API_KEY}`
     })
     .then(res =>
         setNeo(res.data))
@@ -39,7 +39,7 @@ const App = () => {
 
   // console.log(process.env.REACT_APP_NASA_API_KEY);
   // console.log(asod);
-  // console.log(neo);
+  console.log(neo);
 
   const getRover = async () => {
     const response = await axios({
