@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react'
 import { useState } from 'react'
 
-const EONET = ({neo}) => {
+const EONET = ({neo, today}) => {
     const [asteroidList, setAsteroidList] = useState([])
-    const neoReturn = neo && neo['near_earth_objects']['2022-12-23']
-    console.log(neo && neoReturn[0].close_approach_data[0].close_approach_date_full)
-    console.log(neo && neoReturn[0].estimated_diameter.miles.estimated_diameter_max)
-    console.log(neo && neoReturn[0].is_potentially_hazardous_asteroid)
+    const neoReturn = neo && neo['near_earth_objects'][today]
+    const neoReturnTest = neo && neo['near_earth_objects']['12-23-2022']
+
+
+    console.log(today);
 
     const rocksMap = neo && neoReturn.map((asteroid, index) => {
         return <tr key={index}><td class="border border-slate-600">{asteroid.name}</td><td class="border border-slate-600">{asteroid.estimated_diameter.miles.estimated_diameter_max} miles</td><td class="border border-slate-600">{asteroid.is_potentially_hazardous_asteroid ? '☢️' : '❎'}</td><td class="border border-slate-600">{asteroid.close_approach_data[0].close_approach_date_full}</td></tr>})
@@ -15,8 +16,8 @@ const EONET = ({neo}) => {
 
   return (
     <div class='border border-sky-500'>
-        <h2>Asteroids - Near Earth Objects</h2>
-        <table class='table-auto border-collapse border border-slate-500'>
+        <h2 class='text-center text-2xl subpixel-antialiased font-bold'>Asteroids - Near Earth Objects</h2>
+        <table class='table-auto border-collapse border border-slate-500 mt-6'>
             <thead>
                 <tr>
                     <th class='border border-slate-400'>Asteroid Name</th>
@@ -25,7 +26,7 @@ const EONET = ({neo}) => {
                     <th class='border border-slate-400'>Approach Date</th>
                 </tr>
             </thead>
-            <tbody>
+            <tbody class='text-center'>
                 {rocksMap}
             </tbody>
         </table>
