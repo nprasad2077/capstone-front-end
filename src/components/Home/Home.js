@@ -11,6 +11,9 @@ const Home = ({asod, eonet, neo, rover, today, epic, roverDate}) => {
       <div>
         <Dashboard asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate}/>
       </div>
+      <div>
+        <DashboardTwo epic={epic} />
+      </div>
 
 
 

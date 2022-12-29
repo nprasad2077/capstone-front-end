@@ -74,6 +74,7 @@ const App = () => {
   }, [])
 
   // console.log(epic);
+  // console.log(rover);
 
 
 
@@ -83,13 +84,6 @@ const App = () => {
       <div>
         <Header />
       </div>
-      <div>
-        <Dashboard asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate}/>
-      </div>
-      <div>
-        <DashboardTwo epic={epic} />
-      </div>
-
       <Routes>
         <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} />} />
         <Route path='/media/:index' element={<MediaPlayer />} />
