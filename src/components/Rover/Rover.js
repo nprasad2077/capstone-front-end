@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 
 const Rover = ({rover, roverDate, sol}) => {
-  console.log(rover && rover)
+  // console.log(rover && rover)
   const roverARR = rover.photos
   const FHAZ = []
   const RHAZ = []
