@@ -4,7 +4,7 @@ import React from 'react'
 import Dashboard from '../Dashboard/Dashboard'
 import DashboardTwo from '../DashboardTwo/DashboardTwo'
 
-const Home = ({asod, eonet, neo, rover, today, epic, roverDate, search, setSearch, searchMapped}) => {
+const Home = ({asod, eonet, neo, rover, today, epic, roverDate, search, setSearch, searchMapped, mediaInput, setMediaInput}) => {
   return (
     <div>
       <p>Home</p>
@@ -12,7 +12,7 @@ const Home = ({asod, eonet, neo, rover, today, epic, roverDate, search, setSearc
         <Dashboard asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate}/>
       </div>
       <div>
-        <DashboardTwo epic={epic} search={search} setSearch={setSearch} searchMapped={searchMapped} />
+        <DashboardTwo epic={epic} search={search} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} setMediaInput={setMediaInput} />
       </div>
 
 

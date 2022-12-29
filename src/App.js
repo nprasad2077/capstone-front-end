@@ -21,6 +21,7 @@ const App = () => {
   const [rover, setRover] = useState('')
   const [epic, setEpic] = useState('')
   const [search, setSearch] = useState([])
+  const [mediaInput, setMediaInput] = useState('')
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
 
@@ -99,6 +100,8 @@ const App = () => {
 
   const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}</Link>)
 
+  // console.log(mediaInput);
+
 
 
 
@@ -108,7 +111,7 @@ const App = () => {
         <Header />
       </div>
       <Routes>
-        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} setSearch={setSearch} searchMapped={searchMapped} />} />
+        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} setMediaInput={setMediaInput} />} />
         <Route path='/media/:index' element={<MediaPlayer />} />
       </Routes>
     </div>
