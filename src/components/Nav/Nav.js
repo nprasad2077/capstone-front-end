@@ -35,8 +35,8 @@ class='bg-slate-800'>
     <Navbar.Link href="/navbars">
       Space Theater
     </Navbar.Link>
-    <Navbar.Link href="/navbars">
-      Contact
+    <Navbar.Link href="/globe">
+      Globe
     </Navbar.Link>
   </Navbar.Collapse>
 </Navbar>
