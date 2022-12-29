@@ -17,7 +17,7 @@ const Globe = () => {
       <h2 class='text-3xl'>GLOBE</h2>
 
       <Viewer>
-        <Entity position={position}>
+        <Entity position={position} name='Houston' description='Hello, world!'>
           <PointGraphics pixelSize={pixelNum} />
         </Entity>
       </Viewer>
