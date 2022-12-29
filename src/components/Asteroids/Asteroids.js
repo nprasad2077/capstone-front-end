@@ -15,7 +15,7 @@ const EONET = ({neo, today}) => {
 
 
   return (
-    <div class='border border-sky-500'>
+    <div class='border border-sky-500 text-center'>
         <h2 class='text-center text-2xl subpixel-antialiased font-bold'>Asteroids - Near Earth Objects</h2>
         <table class='table-auto border-collapse border border-slate-500 mt-6'>
             <thead>

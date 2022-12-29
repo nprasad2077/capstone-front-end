@@ -4,11 +4,15 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
+import { Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // Components
 
 import Header from './components/Header/Header'
 import Dashboard from './components/Dashboard/Dashboard'
 import DashboardTwo from './components/DashboardTwo/DashboardTwo';
+import MediaPlayer from './components/MediaPlayer/MediaPlayer'
+import Home from './components/Home/Home'
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -16,8 +20,11 @@ const App = () => {
   const [neo, setNeo] = useState('')
   const [rover, setRover] = useState('')
   const [epic, setEpic] = useState('')
+  const [search, setSearch] = useState([])
+  const [mediaInput, setMediaInput] = useState('')
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
+  const [sol, setSol] = useState(100)
 
   console.log(roverDate);
 
@@ -48,7 +55,7 @@ const App = () => {
   const getRover = async () => {
     const response = await axios({
       method: 'get',
-      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=`+ roverDate +`&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&api_key=${process.env.REACT_APP_NASA_API_KEY}`
     })
     .then(res => setRover(res.data))
     .catch(err => console.log(err))
@@ -71,6 +78,30 @@ const App = () => {
   }, [])
 
   // console.log(epic);
+  // console.log(rover);
+
+  const getSearch = async () => {
+    const response = await axios({
+      method: 'get',
+      url: 'https://images-api.nasa.gov/search?q=moon'
+    })
+    .then(res => setSearch(res.data))
+    .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+    getSearch()
+  }, [])
+
+  // console.log(search);
+
+  const searchDetails = search.collection && search.collection.items
+
+  // console.log(searchDetails);
+
+  const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}</Link>)
+
+  // console.log(mediaInput);
 
 
 
@@ -80,12 +111,10 @@ const App = () => {
       <div>
         <Header />
       </div>
-      <div>
-        <Dashboard asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate}/>
-      </div>
-      <div>
-        <DashboardTwo epic={epic} />
-      </div>
+      <Routes>
+        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} setMediaInput={setMediaInput} />} />
+        <Route path='/media/:index' element={<MediaPlayer />} />
+      </Routes>
     </div>
   )
 }
