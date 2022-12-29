@@ -11,6 +11,7 @@ import Header from './components/Header/Header'
 import Dashboard from './components/Dashboard/Dashboard'
 import DashboardTwo from './components/DashboardTwo/DashboardTwo';
 import MediaPlayer from './components/MediaPlayer/MediaPlayer'
+import Home from './components/Home/Home'
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -90,7 +91,7 @@ const App = () => {
       </div>
 
       <Routes>
-        <Route path='/' element={<MediaPlayer />} />
+        <Route path='/' element={<Home />} />
         <Route path='/media/:index' element={<MediaPlayer />} />
       </Routes>
     </div>
