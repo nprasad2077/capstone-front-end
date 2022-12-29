@@ -17,7 +17,7 @@ const Dashboard = ({asod, eonet, neo, rover, today, epic, roverDate, sol}) => {
       <div class='w-1/3'>
         <EONET neo={neo} today={today}/>
       </div>
-      <div class='w-1/3'>
+      <div class='w-1/3 overflow-visible object-contain'>
         <Rover rover={rover} roverDate={roverDate} sol={sol} />
       </div>
     </div>

@@ -6,6 +6,9 @@ import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import { Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+
+// Script
+import { Helmet } from 'react-helmet';
 // Components
 
 import Header from './components/Header/Header'
@@ -13,6 +16,7 @@ import Dashboard from './components/Dashboard/Dashboard'
 import DashboardTwo from './components/DashboardTwo/DashboardTwo';
 import MediaPlayer from './components/MediaPlayer/MediaPlayer'
 import Home from './components/Home/Home'
+import Nav from './components/Nav/Nav';
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -109,8 +113,12 @@ const App = () => {
   return (
     <div class='bg-slate-700 text-slate-100'>
       <div>
-        <Header />
+        {/* <Header /> */}
+        <Nav />
       </div>
+      <Helmet>
+        <script src='../node_modules/flowbite/dist/flowbite.js' type='text/javascript' />
+      </Helmet>
       <Routes>
         <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} setMediaInput={setMediaInput} />} />
         <Route path='/media/:index' element={<MediaPlayer />} />
