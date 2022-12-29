@@ -3,6 +3,7 @@ import React from 'react'
 // components
 import Dashboard from '../Dashboard/Dashboard'
 import DashboardTwo from '../DashboardTwo/DashboardTwo'
+import Gallery from '../Gallery/Gallery'
 
 const Home = ({asod, eonet, neo, rover, today, epic, roverDate, search, setSearch, searchMapped, mediaInput, setMediaInput, sol}) => {
   return (
@@ -12,6 +13,9 @@ const Home = ({asod, eonet, neo, rover, today, epic, roverDate, search, setSearc
       </div>
       <div>
         <DashboardTwo epic={epic} search={search} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} setMediaInput={setMediaInput} />
+      </div>
+      <div class='w-1/3'>
+        <Gallery />
       </div>
     </div>
   )
