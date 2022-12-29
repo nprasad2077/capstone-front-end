@@ -21,7 +21,7 @@ class='bg-slate-800'>
   <Navbar.Toggle />
   <Navbar.Collapse>
     <Navbar.Link
-      href="/navbars"
+      href='/'
       active={true}
     >
       Home
@@ -30,10 +30,10 @@ class='bg-slate-800'>
       About
     </Navbar.Link>
     <Navbar.Link href="/navbars">
-      Services
+      Rover
     </Navbar.Link>
     <Navbar.Link href="/navbars">
-      Pricing
+      Space Theater
     </Navbar.Link>
     <Navbar.Link href="/navbars">
       Contact
