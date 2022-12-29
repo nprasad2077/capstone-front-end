@@ -8,7 +8,7 @@ const Globe = () => {
     <div class='text-center'>
       <h2 class='text-3xl'>GLOBE</h2>
 
-      <Viewer full />
+      <Viewer />
 
 
     </div>
