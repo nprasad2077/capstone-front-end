@@ -3,32 +3,32 @@ import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 
-const Image = () => {
-  const [search, setSearch] = useState([])
+const Image = ({search, searchMapped}) => {
+
   const [titles, setTitles] = useState([])
 
-  const getSearch = async () => {
-    const response = await axios({
-      method: 'get',
-      url: 'https://images-api.nasa.gov/search?q=moon'
-    })
-    .then(res => setSearch(res.data))
-    .catch(err => console.log(err))
-  }
+  // const getSearch = async () => {
+  //   const response = await axios({
+  //     method: 'get',
+  //     url: 'https://images-api.nasa.gov/search?q=moon'
+  //   })
+  //   .then(res => setSearch(res.data))
+  //   .catch(err => console.log(err))
+  // }
 
-  useEffect(() => {
-    getSearch()
-  }, [])
+  // useEffect(() => {
+  //   getSearch()
+  // }, [])
 
-  console.log(search);
+  // console.log(search);
 
-  const searchDetails = search.collection && search.collection.items
+  // const searchDetails = search && search.collection.items
 
-  console.log(searchDetails);
+  // console.log(searchDetails);
 
-  const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}</Link>)
+  // const searchMapped = search && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}</Link>)
 
-  console.log(searchMapped);
+  // console.log(searchMapped)
 
 
 
@@ -37,7 +37,7 @@ const Image = () => {
 
       <h2 class='text-center text-2xl subpixel-antialiased font-bold'>NASA Image and Video Library</h2>
       <div class='flex-col mt-10'>
-        {searchMapped}
+        {search.collection && searchMapped}
       </div>
 
     </div>

@@ -5,6 +5,7 @@ import { useState, useEffect } from 'react'
 import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import { Routes, Route } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 // Components
 
 import Header from './components/Header/Header'
@@ -19,6 +20,7 @@ const App = () => {
   const [neo, setNeo] = useState('')
   const [rover, setRover] = useState('')
   const [epic, setEpic] = useState('')
+  const [search, setSearch] = useState([])
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
 
@@ -76,6 +78,27 @@ const App = () => {
   // console.log(epic);
   // console.log(rover);
 
+  const getSearch = async () => {
+    const response = await axios({
+      method: 'get',
+      url: 'https://images-api.nasa.gov/search?q=moon'
+    })
+    .then(res => setSearch(res.data))
+    .catch(err => console.log(err))
+  }
+
+  useEffect(() => {
+    getSearch()
+  }, [])
+
+  console.log(search);
+
+  const searchDetails = search.collection && search.collection.items
+
+  console.log(searchDetails);
+
+  const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}</Link>)
+
 
 
 
@@ -85,7 +108,7 @@ const App = () => {
         <Header />
       </div>
       <Routes>
-        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} />} />
+        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} setSearch={setSearch} searchMapped={searchMapped} />} />
         <Route path='/media/:index' element={<MediaPlayer />} />
       </Routes>
     </div>
