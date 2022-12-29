@@ -91,7 +91,7 @@ const App = () => {
       </div>
 
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} />} />
         <Route path='/media/:index' element={<MediaPlayer />} />
       </Routes>
     </div>
