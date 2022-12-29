@@ -24,6 +24,7 @@ const App = () => {
   const [mediaInput, setMediaInput] = useState('')
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
+  const [sol, setSol] = useState(100)
 
   console.log(roverDate);
 
@@ -54,7 +55,7 @@ const App = () => {
   const getRover = async () => {
     const response = await axios({
       method: 'get',
-      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?earth_date=`+ roverDate +`&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/curiosity/photos?sol=${sol}&api_key=${process.env.REACT_APP_NASA_API_KEY}`
     })
     .then(res => setRover(res.data))
     .catch(err => console.log(err))
@@ -92,11 +93,11 @@ const App = () => {
     getSearch()
   }, [])
 
-  console.log(search);
+  // console.log(search);
 
   const searchDetails = search.collection && search.collection.items
 
-  console.log(searchDetails);
+  // console.log(searchDetails);
 
   const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}</Link>)
 
@@ -111,7 +112,7 @@ const App = () => {
         <Header />
       </div>
       <Routes>
-        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} setMediaInput={setMediaInput} />} />
+        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} setMediaInput={setMediaInput} />} />
         <Route path='/media/:index' element={<MediaPlayer />} />
       </Routes>
     </div>

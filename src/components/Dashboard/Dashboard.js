@@ -8,7 +8,7 @@ import EPIC from '../EPIC/EPIC'
 import SlideShow from '../SlideShow/SlideShow'
 
 
-const Dashboard = ({asod, eonet, neo, rover, today, epic, roverDate}) => {
+const Dashboard = ({asod, eonet, neo, rover, today, epic, roverDate, sol}) => {
   return (
     <div class='flex mt-6'>
       <div class='w-1/3'>
@@ -18,7 +18,7 @@ const Dashboard = ({asod, eonet, neo, rover, today, epic, roverDate}) => {
         <EONET neo={neo} today={today}/>
       </div>
       <div class='w-1/3'>
-        <Rover rover={rover} roverDate={roverDate}/>
+        <Rover rover={rover} roverDate={roverDate} sol={sol} />
       </div>
     </div>
   )

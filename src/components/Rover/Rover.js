@@ -1,8 +1,8 @@
 import React from 'react'
 import { useState } from 'react'
 
-const Rover = ({rover, roverDate}) => {
-  // console.log(rover && rover)
+const Rover = ({rover, roverDate, sol}) => {
+  console.log(rover && rover)
   const roverARR = rover.photos
   const FHAZ = []
   const RHAZ = []
@@ -24,6 +24,7 @@ const Rover = ({rover, roverDate}) => {
   const [displayMAST, setDisplayMAST] = useState('')
   const [displayCHEM, setDisplayCHEM] = useState('')
   const [displayNAVCAM, setDisplayNAVCAM] = useState('')
+  const solDate = sol.toString()
  
 
 
@@ -120,8 +121,9 @@ const Rover = ({rover, roverDate}) => {
 
   return (
     <div class='border border-sky-500 content-center flex flex-col'>
-      <h2 class='text-center text-2xl subpixel-antialiased font-bold'>Curiosity Rover</h2>
-      <button onClick={randomNAVCAM}>NAVCAM</button>
+      <h2 class='text-center text-2xl subpixel-antialiased font-bold text-orange-500'>Mars Rover</h2>
+      <iframe class='mt-6' src='https://mars.nasa.gov/layout/embed/model/?s=6' width='800' height='450' scrolling='no' frameborder='0' allowfullscreen></iframe>
+      <button class='mt-4' onClick={randomNAVCAM}>NAVCAM</button>
       <button onClick={randomFHAZ}>FHAZ</button>
       <button onClick={randomRHAZ}>RHAZ</button>
       <button onClick={randomMAST}>MAST</button>
@@ -136,7 +138,11 @@ const Rover = ({rover, roverDate}) => {
       <img src={displayMAST}></img>
       <p>CHEM: </p>
       <img src={displayCHEM}></img>
-      <h2>Rover Date: {roverDate}</h2>
+      <h2 class='mt-10'>A mars years is 687 Earth days.</h2>
+      <br></br>
+      <h2>For any planet, a year is the time it takes to make one orbit around the sun.</h2>
+      <h2 class='mt-4'>Because Mars is farther away from the sun, it has to travel a greater distance around the sun. It takes Mars about twice as long as it does for Earth to make one circle around the sun. Therefore, a year on Mars lasts twice as long.</h2>
+      <h2 class='mt-6 font-bold text-orange-600'>Martian years are represented by sol. The current sol of the Mars Rover images is sol: {sol}</h2>
     </div>
   )
 }
