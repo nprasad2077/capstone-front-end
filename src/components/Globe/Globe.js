@@ -1,4 +1,6 @@
 import React from 'react'
+import {Cartesian3} from 'cesium'
+import {Viewer} from 'resium'
 
 const Globe = () => {
   return (
