@@ -4,11 +4,13 @@ import axios from 'axios'
 import { useState, useEffect } from 'react'
 import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
+import { Routes, Route } from 'react-router-dom';
 // Components
 
 import Header from './components/Header/Header'
 import Dashboard from './components/Dashboard/Dashboard'
 import DashboardTwo from './components/DashboardTwo/DashboardTwo';
+import MediaPlayer from './components/MediaPlayer/MediaPlayer'
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -86,6 +88,11 @@ const App = () => {
       <div>
         <DashboardTwo epic={epic} />
       </div>
+
+      <Routes>
+        <Route path='/' element={<MediaPlayer />} />
+        <Route path='/media/:index' element={<MediaPlayer />} />
+      </Routes>
     </div>
   )
 }

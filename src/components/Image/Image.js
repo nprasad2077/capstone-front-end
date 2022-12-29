@@ -1,6 +1,7 @@
 import axios from 'axios'
 import React, { useEffect } from 'react'
 import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
 const Image = () => {
   const [search, setSearch] = useState([])
@@ -25,7 +26,7 @@ const Image = () => {
 
   console.log(searchDetails);
 
-  const searchMapped = search.collection && searchDetails.map((search) => <p>{search.data[0].title}</p>)
+  const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}</Link>)
 
   console.log(searchMapped);
 
