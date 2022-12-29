@@ -2,7 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 
 const Rover = ({rover, roverDate}) => {
-  // console.log(rover && rover.photos[0].camera.name);
+  // console.log(rover && rover)
   const roverARR = rover.photos
   const FHAZ = []
   const RHAZ = []
@@ -104,6 +104,7 @@ const Rover = ({rover, roverDate}) => {
 
   function randomNAVCAM () {
     const random = Math.floor(Math.random() * NAVCAM.length)
+    // console.log(random);
     // console.log(NAVCAM[random]);
     setDisplayNAVCAM(NAVCAM[random])
     setDisplayFHAZ('')
@@ -112,7 +113,7 @@ const Rover = ({rover, roverDate}) => {
     setDisplayCHEM('')
   }
 
-
+// console.log(NAVCAM.length);
 
 
 
