@@ -14,7 +14,7 @@ class='bg-slate-800'>
       className="mr-3 h-6 sm:h-9"
       alt="Flowbite Logo"
     />
-    <span className="self-center whitespace-nowrap text-2xl font-semibold dark:text-white">
+    <span className="self-center whitespace-nowrap text-3xl font-semibold dark:text-white">
       Planetarium
     </span>
   </Navbar.Brand>
@@ -36,7 +36,7 @@ class='bg-slate-800'>
       Space Theater
     </Navbar.Link>
     <Navbar.Link href="/globe">
-      Globe
+      Globe 
     </Navbar.Link>
   </Navbar.Collapse>
 </Navbar>

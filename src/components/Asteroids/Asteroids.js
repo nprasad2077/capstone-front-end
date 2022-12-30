@@ -7,7 +7,7 @@ const EONET = ({neo, today}) => {
     const neoReturnTest = neo && neo['near_earth_objects']['12-23-2022']
 
 
-    console.log(today);
+    // console.log(today);
 
     const rocksMap = neo && neoReturn.map((asteroid, index) => {
         return <tr key={index}><td class="border border-slate-600">{asteroid.name}</td><td class="border border-slate-600">{asteroid.estimated_diameter.miles.estimated_diameter_max} miles</td><td class="border border-slate-600">{asteroid.is_potentially_hazardous_asteroid ? '☢️' : '❎'}</td><td class="border border-slate-600">{asteroid.close_approach_data[0].close_approach_date_full}</td></tr>})
