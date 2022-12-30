@@ -27,6 +27,9 @@ const App = () => {
   const [epic, setEpic] = useState('')
   const [search, setSearch] = useState([])
   const [mediaInput, setMediaInput] = useState('')
+  const [astro, setAstro] = useState('')
+  const [mongo, setMongo] = useState('')
+
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
   const [sol, setSol] = useState(100)
@@ -75,15 +78,39 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
+  const getAstro = async () => {
+    const response = await axios({
+      method: 'get',
+      url: 'http://localhost:8000/astronauts/'
+    })
+    .then(res => setAstro(res.data))
+    .catch(err => console.log(err))
+  }
+
+  const getMongo = async () => {
+    const response = await axios({
+      method: 'get',
+      url: 'http://localhost:8080/'
+    })
+    .then(res => setMongo(res.data))
+    .catch(err => console.log(err))
+  }
+
+
+
   useEffect(() => {
     getASOD()
     getNEO()
     getRover()
     getEPIC()
+    getAstro()
+    getMongo()
   }, [])
 
   // console.log(epic);
   // console.log(rover);
+  // console.log(astro);
+  console.log(mongo);
 
   const getSearch = async () => {
     const response = await axios({
@@ -122,7 +149,7 @@ const App = () => {
       </Helmet>
       <Routes>
         <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} setMediaInput={setMediaInput} />} />
-        <Route path='/media/:index' element={<MediaPlayer />} />
+        <Route path='/media/:index' element={<MediaPlayer search={search} />} />
         <Route path='/globe' element={<Globe />} />
       </Routes>
     </div>
