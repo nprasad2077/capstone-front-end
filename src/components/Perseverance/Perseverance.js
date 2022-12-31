@@ -1,6 +1,20 @@
 import React from 'react'
-import { useState } from 'react';
+import ImageGallery from 'react-image-gallery';
 
+const images = [
+  {
+    original: 'https://picsum.photos/id/1018/1000/600/',
+    thumbnail: 'https://picsum.photos/id/1018/250/150/',
+  },
+  {
+    original: 'https://picsum.photos/id/1015/1000/600/',
+    thumbnail: 'https://picsum.photos/id/1015/250/150/',
+  },
+  {
+    original: 'https://picsum.photos/id/1019/1000/600/',
+    thumbnail: 'https://picsum.photos/id/1019/250/150/',
+  },
+];
 
 const url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=1&api_key=DEMO_KEY'
 
@@ -46,7 +60,10 @@ const Perseverance = ({persRover}) => {
 
   return (
     <div>
-
+      <ImageGallery items={images} />
+      <ImageGallery items={images} />
+      <ImageGallery items={images} />
+      <ImageGallery items={images} />
     </div>
   )
 }
