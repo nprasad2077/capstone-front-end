@@ -10,6 +10,8 @@ const Perseverance = ({persRover}) => {
   const navcamLeftDate = []
   const mastZoomRight = []
   const mastZoomRightDate = []
+  const mastZoomLeft = []
+  const mastZoomLeftDate = []
 
   function parsePersRover(rov) {
     if (rov.camera.name === 'NAVCAM_LEFT') {
@@ -20,13 +22,17 @@ const Perseverance = ({persRover}) => {
       mastZoomRight.push(rov.img_src)
       mastZoomRightDate.push(rov.earth_date)
     }
+    if (rov.camera.name === 'MCZ_LEFT') {
+      mastZoomLeft.push(rov.img_src)
+      mastZoomLeftDate.push(rov.earth_date)
+    }
 
   }
 
   const persRoverMapped = persRover.photos && persRover.photos.map((rover) => parsePersRover(rover))
 
   console.log(persRoverMapped);
-  console.log(mastZoomRight, mastZoomRightDate);
+  console.log(mastZoomLeft, mastZoomRightDate);
 
 
 
