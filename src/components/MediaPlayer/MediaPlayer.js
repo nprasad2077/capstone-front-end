@@ -1,5 +1,5 @@
 import React from 'react'
-import { Params, useParams } from 'react-router-dom'
+import { useParams } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import axios from 'axios'
 
@@ -48,7 +48,7 @@ console.log(showVideo);
   return (
     <div class='text-center text-xl mt-6'>
       <h2>Media Player</h2>
-      <img src={showImage && showImage}></img>
+      <img src={showImage && showImage}  alt='display from NASA img and Video Library'></img>
 
       <div>
         {/* {mediaType == 'video' ? test: null}  rendering issue! */}

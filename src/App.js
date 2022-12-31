@@ -18,6 +18,7 @@ import MediaPlayer from './components/MediaPlayer/MediaPlayer'
 import Home from './components/Home/Home'
 import Nav from './components/Nav/Nav';
 import Globe from './components/Globe/Globe'
+import Perseverance from './components/Perseverance/Perseverance';
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -29,6 +30,7 @@ const App = () => {
   const [mediaInput, setMediaInput] = useState('')
   const [astro, setAstro] = useState('')
   const [mongo, setMongo] = useState('')
+  const [persRover, setPersRover] = useState([])
 
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
@@ -151,6 +153,7 @@ const App = () => {
         <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} setMediaInput={setMediaInput} />} />
         <Route path='/media/:index' element={<MediaPlayer search={search} />} />
         <Route path='/globe' element={<Globe />} />
+        <Route path='/persrover' element={<Perseverance />} />
       </Routes>
     </div>
   )

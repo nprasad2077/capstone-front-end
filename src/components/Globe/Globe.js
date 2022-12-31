@@ -19,7 +19,7 @@ const Globe = () => {
   return (
     <div class='text-center'>
       <h2 class='text-3xl'>GLOBE</h2>
-      <Viewer full terrtainProvider={terrtainProvider}>
+      <Viewer terrtainProvider={terrtainProvider}>
         <Entity position={position} name='Houston'>
           <PointGraphics pixelSize={pixelNum} />
           <EntityDescription>
