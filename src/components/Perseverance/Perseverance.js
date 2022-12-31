@@ -16,6 +16,8 @@ const images = [
   },
 ];
 
+const navcamLeftImages = []
+
 const url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=1&api_key=DEMO_KEY'
 
 const Perseverance = ({persRover}) => {
@@ -52,18 +54,31 @@ const Perseverance = ({persRover}) => {
 
   const persRoverMapped = persRover.photos && persRover.photos.map((rover) => parsePersRover(rover))
 
-  console.log(persRoverMapped);
-  console.log(skycam, mastZoomRightDate);
+  // console.log(persRoverMapped);
+  // console.log(skycam, mastZoomRightDate);
+  console.log(navcamLeft);
 
+  const navcamLeftMap = persRover.photos && navcamLeft.map((cam) => navcamLeftImages.push({original: cam, thumbnail: cam}))
+
+  console.log(navcamLeftImages);
 
 
 
   return (
     <div>
-      <ImageGallery items={images} />
-      <ImageGallery items={images} />
-      <ImageGallery items={images} />
-      <ImageGallery items={images} />
+      <h2 class='text-center text-3xl'>Perseverance Rover</h2>
+      <div class='mt-6'>
+        <ImageGallery items={navcamLeftImages} />
+      </div>
+      <div class='mt-10'>
+        <ImageGallery items={images} />
+      </div>
+      <div class='mt-10'>
+        <ImageGallery items={images} />
+      </div>
+      <div class='mt-10'>
+        <ImageGallery items={images} />
+      </div>
     </div>
   )
 }
