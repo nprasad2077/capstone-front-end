@@ -84,7 +84,7 @@ const App = () => {
   const getAstro = async () => {
     const response = await axios({
       method: 'get',
-      url: 'http://localhost:8000/astronauts/'
+      url: 'https://polar-everglades-56224.herokuapp.com/astronauts/'
     })
     .then(res => setAstro(res.data))
     .catch(err => console.log(err))
@@ -116,13 +116,13 @@ const App = () => {
     getRover()
     getEPIC()
     getPersRover()
-    // getAstro()
+    getAstro()
     // getMongo()
   }, [])
 
   // console.log(epic);
   // console.log(rover);
-  // console.log(astro);
+  console.log(astro);
   // console.log(mongo);
   // console.log(persRover);
 
