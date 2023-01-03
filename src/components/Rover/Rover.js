@@ -122,7 +122,7 @@ const Rover = ({rover, roverDate, sol}) => {
   return (
     <div class='border border-sky-500 content-center flex flex-col object-contain'>
       <h2 class='text-center text-2xl subpixel-antialiased font-bold text-orange-500'>Mars Rover</h2>
-      <iframe class='mt-6 object-scale-down w-auto' src='https://mars.nasa.gov/layout/embed/model/?s=6' width='800' height='450' scrolling='no' frameBorder='0' allowFullscreen></iframe>
+      <iframe class='mt-6 object-scale-down w-auto' src='https://mars.nasa.gov/layout/embed/model/?s=6' width='800' height='450' scrolling='no' frameBorder='0' allowFullScreen></iframe>
       <button class='mt-4' onClick={randomNAVCAM}>NAVCAM</button>
       <button onClick={randomFHAZ}>FHAZ</button>
       <button onClick={randomRHAZ}>RHAZ</button>

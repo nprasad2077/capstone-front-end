@@ -31,6 +31,7 @@ const App = () => {
   const [astro, setAstro] = useState('')
   const [mongo, setMongo] = useState('')
   const [persRover, setPersRover] = useState([])
+  const [mediaForm, setMediaForm] = useState('')
 
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
@@ -128,15 +129,15 @@ const App = () => {
   const getSearch = async () => {
     const response = await axios({
       method: 'get',
-      url: 'https://images-api.nasa.gov/search?q=moon'
+      url: 'https://images-api.nasa.gov/search?q=' + mediaInput
     })
     .then(res => setSearch(res.data))
     .catch(err => console.log(err))
   }
 
-  useEffect(() => {
-    getSearch()
-  }, [])
+  // useEffect(() => {
+  //   getSearch()
+  // }, [])
 
   // console.log(search);
 
@@ -161,7 +162,7 @@ const App = () => {
         <script src='../node_modules/flowbite/dist/flowbite.js' type='text/javascript' />
       </Helmet>
       <Routes>
-        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} setMediaInput={setMediaInput} />} />
+        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} getSearch={getSearch} setMediaInput={setMediaInput} mediaForm={mediaForm} setMediaForm={setMediaForm}/>} />
         <Route path='/media/:index' element={<MediaPlayer search={search} />} />
         <Route path='/globe' element={<Globe />} />
         <Route path='/persrover' element={<Perseverance persRover={persRover}/>} />
