@@ -18,6 +18,7 @@ import MediaPlayer from './components/MediaPlayer/MediaPlayer'
 import Home from './components/Home/Home'
 import Nav from './components/Nav/Nav';
 import Globe from './components/Globe/Globe'
+import Perseverance from './components/Perseverance/Perseverance';
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -29,12 +30,13 @@ const App = () => {
   const [mediaInput, setMediaInput] = useState('')
   const [astro, setAstro] = useState('')
   const [mongo, setMongo] = useState('')
+  const [persRover, setPersRover] = useState([])
 
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
   const [sol, setSol] = useState(100)
 
-  console.log(roverDate);
+  // console.log(roverDate);
 
   const getASOD = async () => {
     const response = await axios({
@@ -96,6 +98,15 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
+  const getPersRover = async () => {
+    const response = await axios({
+      method: 'get',
+      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=100&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+    })
+    .then(res => setPersRover(res.data))
+    .catch(err => console.log(err))
+  }
+
 
 
   useEffect(() => {
@@ -103,14 +114,16 @@ const App = () => {
     getNEO()
     getRover()
     getEPIC()
-    getAstro()
-    getMongo()
+    getPersRover()
+    // getAstro()
+    // getMongo()
   }, [])
 
   // console.log(epic);
   // console.log(rover);
   // console.log(astro);
-  console.log(mongo);
+  // console.log(mongo);
+  // console.log(persRover);
 
   const getSearch = async () => {
     const response = await axios({
@@ -151,6 +164,7 @@ const App = () => {
         <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} setMediaInput={setMediaInput} />} />
         <Route path='/media/:index' element={<MediaPlayer search={search} />} />
         <Route path='/globe' element={<Globe />} />
+        <Route path='/persrover' element={<Perseverance persRover={persRover}/>} />
       </Routes>
     </div>
   )
