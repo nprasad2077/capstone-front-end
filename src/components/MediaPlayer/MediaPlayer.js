@@ -7,7 +7,7 @@ import ReactPlayer from 'react-player'
 const MediaPlayer = ({search}) => {
   const {index} = useParams()
   const [content, setContent] = useState([])
-  const [showImage, setShowImage] = useState('')
+  const [showImage, setShowImage] = useState(null)
   const [showVideo, setShowVideo] = useState(null)
   const collectionURL = search.collection.items[index].href
   const mediaType = search.collection.items[index].data[0].media_type
@@ -26,7 +26,6 @@ const MediaPlayer = ({search}) => {
     .catch(err => console.log(err))
   }
 
-
   const displayMedia = () => {
     if (mediaType === 'video') {
       setShowVideo(content)
@@ -36,8 +35,6 @@ const MediaPlayer = ({search}) => {
       setShowImage(content)
     }
   }
-
-
 
 console.log(content);
 console.log(showImage);
@@ -57,14 +54,10 @@ useEffect(() => {
   return (
     <div class='text-center mt-4'>
       <h2 class='text-4xl'>Media Player</h2>
-
       <div class=''>
         <img class='w-full' src={showImage && showImage}  alt='display from NASA img and Video Library'></img>
-        {video}
         <video key={showVideo} controls autoPlay muted width="100%"><source src={showVideo} type="video/mp4"/>Sorry, your browser doesn't support videos.</video>
       </div>
-      {/* <button onClick={setTest}>Play Video</button> */}
-
     </div>
   )
 }
