@@ -17,6 +17,7 @@ const images = [
 ];
 
 const navcamLeftImages = []
+const mastZoomRightImages = []
 
 const url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=1&api_key=DEMO_KEY'
 
@@ -59,8 +60,9 @@ const Perseverance = ({persRover}) => {
   console.log(navcamLeft);
 
   const navcamLeftMap = persRover.photos && navcamLeft.map((cam) => navcamLeftImages.push({original: cam, thumbnail: cam}))
+  const rightMastMap = persRover.photos && mastZoomRight.map((cam) => mastZoomRightImages.push({original: cam, thumbnail: cam}) )
 
-  console.log(navcamLeftImages);
+  console.log(mastZoomRightImages);
 
 
 
@@ -71,7 +73,7 @@ const Perseverance = ({persRover}) => {
         <ImageGallery items={navcamLeftImages} />
       </div>
       <div class='mt-10'>
-        <ImageGallery items={images} />
+        <ImageGallery items={mastZoomRightImages} />
       </div>
       <div class='mt-10'>
         <ImageGallery items={images} />

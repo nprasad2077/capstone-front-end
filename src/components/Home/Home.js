@@ -14,9 +14,9 @@ const Home = ({asod, eonet, neo, rover, today, epic, roverDate, search, setSearc
       <div>
         <DashboardTwo epic={epic} search={search} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} setMediaInput={setMediaInput} />
       </div>
-      <div class='w-1/3'>
+      {/* <div class='w-1/3'>
         <Gallery />
-      </div>
+      </div> */}
     </div>
   )
 }
