@@ -55,17 +55,17 @@ function setTest() {
   console.log('video set!');
 }
 
+// setTimeout(setTest, 1000)
 
   return (
-    <div class='text-center text-xl mt-6'>
-      <h2>Media Player</h2>
-      <img src={showImage && showImage}  alt='display from NASA img and Video Library'></img>
+    <div class='text-center mt-4'>
+      <h2 class='text-4xl'>Media Player</h2>
 
-      <div>
+      <div class=''>
+        <img class='w-full' src={showImage && showImage}  alt='display from NASA img and Video Library'></img>
         {video}
       </div>
-      <button onClick={setTest}>Test</button>
-
+      <button onClick={setTest}>Play Video</button>
 
     </div>
   )
