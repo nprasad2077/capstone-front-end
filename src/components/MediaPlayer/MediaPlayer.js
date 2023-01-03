@@ -37,25 +37,22 @@ const MediaPlayer = ({search}) => {
     }
   }
 
-  useEffect(() => {
-    getContent()
-    displayMedia()
 
-  }, [content])
 
 console.log(content);
 console.log(showImage);
 console.log(showVideo);
 
 function setTest() {
-  setVideo(        <video controls autoPlay muted width="100%">
-  <source src={showVideo && showVideo} type="video/mp4"/>
-  Sorry, your browser doesn't support videos.
-</video>)
-  console.log('video set!');
+  setVideo(<video controls autoPlay muted width="100%"><source src={showVideo} type="video/mp4"/> Sorry, your browser doesn't support videos.</video>)
+console.log('video set!');
 }
 
-// setTimeout(setTest, 1000)
+useEffect(() => {
+  getContent()
+  displayMedia()
+
+}, [content])
 
   return (
     <div class='text-center mt-4'>
@@ -64,8 +61,9 @@ function setTest() {
       <div class=''>
         <img class='w-full' src={showImage && showImage}  alt='display from NASA img and Video Library'></img>
         {video}
+        <video key={showVideo} controls autoPlay muted width="100%"><source src={showVideo} type="video/mp4"/>Sorry, your browser doesn't support videos.</video>
       </div>
-      <button onClick={setTest}>Play Video</button>
+      {/* <button onClick={setTest}>Play Video</button> */}
 
     </div>
   )
