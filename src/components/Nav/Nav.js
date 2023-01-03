@@ -1,5 +1,6 @@
 import React from 'react'
 import { Navbar } from 'flowbite-react'
+import { Link } from 'react-router-dom'
 
 
 const Nav = () => {
@@ -26,10 +27,10 @@ class='bg-slate-800'>
     >
       Home
     </Navbar.Link>
-    <Navbar.Link href="/navbars">
+    <Navbar.Link href="/globe">
       About
     </Navbar.Link>
-    <Navbar.Link href="/navbars">
+    <Navbar.Link href="/persrover">
       Rover
     </Navbar.Link>
     <Navbar.Link href="/navbars">
