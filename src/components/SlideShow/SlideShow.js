@@ -18,7 +18,7 @@ const images = [
 ];
 
 const SlideShow = ({epic}) => {
-  const slideshowEpic = epic && epic.map((images) => 'https://epic.gsfc.nasa.gov/archive/natural/2022/12/25/png/'+ images.image + '.png')
+  const slideshowEpic = epic && epic.map((images) => 'https://epic.gsfc.nasa.gov/archive/natural/2023/01/02/png/'+ images.image + '.png')
   const slideshowEpicJpg = epic && epic.map((images) => 'https://epic.gsfc.nasa.gov/archive/natural/2022/12/25/jpg/'+ images.image + '.jpg')
   const imagesARR = []
 
@@ -27,8 +27,6 @@ const SlideShow = ({epic}) => {
   // console.log(slideshowEpicJpg)
   // console.log(imagesARR)
   // console.log(images);
-
-
 
 
   return (

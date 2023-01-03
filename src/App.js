@@ -37,7 +37,12 @@ const App = () => {
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
   const [sol, setSol] = useState(100)
 
+  let yesterday = (( d => new Date(d.setDate(d.getDate()-1)) )(new Date)).toISOString().slice(0,10)
+
   // console.log(roverDate);
+  console.log(today);
+  console.log(yesterday);
+
 
   const getASOD = async () => {
     const response = await axios({
@@ -75,7 +80,7 @@ const App = () => {
   const getEPIC = async () => {
     const response = await axios({
       method: 'get',
-      url: `https://epic.gsfc.nasa.gov/api/natural/date/2022-12-25`
+      url: `https://epic.gsfc.nasa.gov/api/natural/date/2023-01-02`
     })
     .then(res => setEpic(res.data))
     .catch(err => console.log(err))
@@ -120,9 +125,9 @@ const App = () => {
     // getMongo()
   }, [])
 
-  // console.log(epic);
+  console.log(epic);
   // console.log(rover);
-  console.log(astro);
+  // console.log(astro);
   // console.log(mongo);
   // console.log(persRover);
 
