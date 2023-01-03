@@ -145,7 +145,7 @@ const App = () => {
 
   // console.log(searchDetails);
 
-  const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}</Link>)
+  const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}<br></br></Link>)
 
   // console.log(mediaInput);
 
