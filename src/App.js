@@ -10,8 +10,6 @@ import { Link } from 'react-router-dom';
 // Script
 import { Helmet } from 'react-helmet';
 // Components
-
-import Header from './components/Header/Header'
 import Dashboard from './components/Dashboard/Dashboard'
 import DashboardTwo from './components/DashboardTwo/DashboardTwo';
 import MediaPlayer from './components/MediaPlayer/MediaPlayer'
