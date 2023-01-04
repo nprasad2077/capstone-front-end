@@ -158,7 +158,7 @@ const App = () => {
 
 
   return (
-    <div class='bg-slate-700 text-slate-100'>
+    <div class='bg-slate-700 text-slate-100 flex-col grow flex-wrap'>
       <div>
         {/* <Header /> */}
         <Nav />

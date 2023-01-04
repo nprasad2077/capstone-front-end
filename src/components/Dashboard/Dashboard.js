@@ -10,7 +10,7 @@ import SlideShow from '../SlideShow/SlideShow'
 
 const Dashboard = ({asod, eonet, neo, rover, today, epic, roverDate, sol}) => {
   return (
-    <div class='flex mt-6'>
+    <div class='flex'>
       <div class='w-1/3'>
         <ASOD asod={asod}/>
       </div>
