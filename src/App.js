@@ -10,13 +10,13 @@ import { Link } from 'react-router-dom';
 // Script
 import { Helmet } from 'react-helmet';
 // Components
-import Dashboard from './components/Dashboard/Dashboard'
-import DashboardTwo from './components/DashboardTwo/DashboardTwo';
 import MediaPlayer from './components/MediaPlayer/MediaPlayer'
 import Home from './components/Home/Home'
 import Nav from './components/Nav/Nav';
 import Globe from './components/Globe/Globe'
 import Perseverance from './components/Perseverance/Perseverance';
+import Astronauts from './components/Astronauts/Astronauts';
+import AstroCreate from './components/AstroCreate/AstroCreate';
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -123,7 +123,7 @@ const App = () => {
     // getMongo()
   }, [])
 
-  console.log(epic);
+  // console.log(epic);
   // console.log(rover);
   // console.log(astro);
   // console.log(mongo);
@@ -166,9 +166,11 @@ const App = () => {
       </Helmet>
       <Routes>
         <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} getSearch={getSearch} setMediaInput={setMediaInput} mediaForm={mediaForm} setMediaForm={setMediaForm}/>} />
-        <Route path='/media/:index' element={<MediaPlayer search={search} />} />
-        <Route path='/globe' element={<Globe />} />
-        <Route path='/persrover' element={<Perseverance persRover={persRover}/>} />
+        <Route path='/media/:index/' element={<MediaPlayer search={search} />} />
+        <Route path='/globe/' element={<Globe />} />
+        <Route path='/persrover/' element={<Perseverance persRover={persRover}/>} />
+        <Route path='/astronauts/' element={<Astronauts astro={astro} />} />
+        <Route path='/astronauts/create/' element={<AstroCreate />} />
       </Routes>
     </div>
   )
