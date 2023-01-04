@@ -19,6 +19,7 @@ import Astronauts from './components/Astronauts/Astronauts';
 import AstroCreate from './components/AstroCreate/AstroCreate';
 import Tail from './components/Tail/Tail';
 import AstroDetail from './components/AstroDetail/AstroDetail'
+import NavHeader from './components/NavHeader/NavHeader';
 
 
 const App = () => {
@@ -162,7 +163,8 @@ const App = () => {
     <div class='bg-slate-700 text-slate-100 flex-col grow flex-wrap'>
       <div>
         {/* <Header /> */}
-        <Nav />
+        {/* <Nav /> */}
+        <NavHeader />
       </div>
       <Helmet>
         <script src='../node_modules/flowbite/dist/flowbite.js' type='text/javascript' />
