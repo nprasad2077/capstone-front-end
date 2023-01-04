@@ -18,6 +18,7 @@ import Perseverance from './components/Perseverance/Perseverance';
 import Astronauts from './components/Astronauts/Astronauts';
 import AstroCreate from './components/AstroCreate/AstroCreate';
 import Tail from './components/Tail/Tail';
+import AstroDetail from './components/AstroDetail/AstroDetail'
 
 
 const App = () => {
@@ -173,6 +174,7 @@ const App = () => {
         <Route path='/persrover/' element={<Perseverance persRover={persRover}/>} />
         <Route path='/astronauts/' element={<Astronauts astro={astro} />} />
         <Route path='/astronauts/create/' element={<AstroCreate />} />
+        <Route path='/astronauts/:id' element={<AstroDetail astro={astro} getAstro={getAstro} />} />
       </Routes>
       <Tail />
     </div>

@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom';
 import { Button, Card } from 'flowbite-react';
-import { CardProps } from 'flowbite-react';
+
 
 const Astronauts = ({astro}) => {
   console.log(astro);
 
-  const astroMapped = astro.map(astro =>         <Link to={'astronauts/' + astro.id}><div className="max-w-sm m-6">
+  const astroMapped = astro.map(astro =>         <Link to={'/astronauts/' + astro.id}><div className="max-w-sm m-6">
   <Card
     imgAlt="Meaningful alt text for an image that is not purely decorative"
     imgSrc={astro.photo_url}
@@ -21,12 +21,9 @@ const Astronauts = ({astro}) => {
   </Card>
 </div></Link>)
 
-  // console.log(astroMapped);
-
 
 
   return (
-
     <div class='flex-col text-center'>
         <h2>Astronauts</h2>
         <div class='flex'>
