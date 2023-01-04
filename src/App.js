@@ -17,6 +17,8 @@ import Globe from './components/Globe/Globe'
 import Perseverance from './components/Perseverance/Perseverance';
 import Astronauts from './components/Astronauts/Astronauts';
 import AstroCreate from './components/AstroCreate/AstroCreate';
+import Tail from './components/Tail/Tail';
+
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -172,6 +174,7 @@ const App = () => {
         <Route path='/astronauts/' element={<Astronauts astro={astro} />} />
         <Route path='/astronauts/create/' element={<AstroCreate />} />
       </Routes>
+      <Tail />
     </div>
   )
 }
