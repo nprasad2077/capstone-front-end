@@ -6,7 +6,7 @@ import { CardProps } from 'flowbite-react';
 const Astronauts = ({astro}) => {
   console.log(astro);
 
-  const astroMapped = astro.map(astro =>         <div className="max-w-sm m-6">
+  const astroMapped = astro.map(astro =>         <Link to={'astronauts/' + astro.id}><div className="max-w-sm m-6">
   <Card
     imgAlt="Meaningful alt text for an image that is not purely decorative"
     imgSrc={astro.photo_url}
@@ -19,7 +19,7 @@ const Astronauts = ({astro}) => {
       Favorite Planet: {astro.favorite_planet}
     </p>
   </Card>
-</div>)
+</div></Link>)
 
   // console.log(astroMapped);
 
