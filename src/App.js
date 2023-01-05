@@ -41,10 +41,6 @@ const App = () => {
 
   let yesterday = (( d => new Date(d.setDate(d.getDate()-1)) )(new Date)).toISOString().slice(0,10)
 
-  // console.log(roverDate);
-  console.log(today);
-  console.log(yesterday);
-
 
   const getASOD = async () => {
     const response = await axios({
@@ -65,10 +61,6 @@ const App = () => {
         setNeo(res.data))
     .catch(err => console.log(err))
   }
-
-  // console.log(process.env.REACT_APP_NASA_API_KEY);
-  // console.log(asod);
-  // console.log(neo);
 
   const getRover = async () => {
     const response = await axios({
@@ -109,7 +101,7 @@ const App = () => {
   const getPersRover = async () => {
     const response = await axios({
       method: 'get',
-      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=100&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=600&api_key=${process.env.REACT_APP_NASA_API_KEY}`
     })
     .then(res => setPersRover(res.data))
     .catch(err => console.log(err))
@@ -162,8 +154,6 @@ const App = () => {
   return (
     <div class='bg-slate-700 text-slate-100 flex-col grow flex-wrap'>
       <div>
-        {/* <Header /> */}
-        {/* <Nav /> */}
         <NavHeader />
       </div>
       <Helmet>
