@@ -10,15 +10,17 @@ import { Link } from 'react-router-dom';
 // Script
 import { Helmet } from 'react-helmet';
 // Components
-
-import Header from './components/Header/Header'
-import Dashboard from './components/Dashboard/Dashboard'
-import DashboardTwo from './components/DashboardTwo/DashboardTwo';
 import MediaPlayer from './components/MediaPlayer/MediaPlayer'
 import Home from './components/Home/Home'
 import Nav from './components/Nav/Nav';
 import Globe from './components/Globe/Globe'
 import Perseverance from './components/Perseverance/Perseverance';
+import Astronauts from './components/Astronauts/Astronauts';
+import AstroCreate from './components/AstroCreate/AstroCreate';
+import Tail from './components/Tail/Tail';
+import AstroDetail from './components/AstroDetail/AstroDetail'
+import NavHeader from './components/NavHeader/NavHeader';
+
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -32,12 +34,16 @@ const App = () => {
   const [mongo, setMongo] = useState('')
   const [persRover, setPersRover] = useState([])
   const [mediaForm, setMediaForm] = useState('')
+  const [sol, setSol] = useState(100)
 
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
-  const [sol, setSol] = useState(100)
+  let yesterday = (( d => new Date(d.setDate(d.getDate()-1)) )(new Date)).toISOString().slice(0,10)
+  let epicDate = (( d => new Date(d.setDate(d.getDate()-2)) )(new Date)).toISOString().slice(0,10)
+  const regex = /-/gi
+  let date = epicDate.replace(regex, '/')
+  console.log(date);
 
-  // console.log(roverDate);
 
   const getASOD = async () => {
     const response = await axios({
@@ -59,10 +65,6 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
-  // console.log(process.env.REACT_APP_NASA_API_KEY);
-  // console.log(asod);
-  // console.log(neo);
-
   const getRover = async () => {
     const response = await axios({
       method: 'get',
@@ -75,7 +77,7 @@ const App = () => {
   const getEPIC = async () => {
     const response = await axios({
       method: 'get',
-      url: `https://epic.gsfc.nasa.gov/api/natural/date/2022-12-25`
+      url: `https://epic.gsfc.nasa.gov/api/natural/date/${epicDate}`
     })
     .then(res => setEpic(res.data))
     .catch(err => console.log(err))
@@ -102,7 +104,7 @@ const App = () => {
   const getPersRover = async () => {
     const response = await axios({
       method: 'get',
-      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=100&api_key=${process.env.REACT_APP_NASA_API_KEY}`
+      url: `https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=600&api_key=${process.env.REACT_APP_NASA_API_KEY}`
     })
     .then(res => setPersRover(res.data))
     .catch(err => console.log(err))
@@ -122,7 +124,7 @@ const App = () => {
 
   // console.log(epic);
   // console.log(rover);
-  console.log(astro);
+  // console.log(astro);
   // console.log(mongo);
   // console.log(persRover);
 
@@ -145,7 +147,7 @@ const App = () => {
 
   // console.log(searchDetails);
 
-  const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}</Link>)
+  const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}<br></br></Link>)
 
   // console.log(mediaInput);
 
@@ -153,20 +155,23 @@ const App = () => {
 
 
   return (
-    <div class='bg-slate-700 text-slate-100'>
+    <div class='bg-slate-700 text-slate-100 flex-col grow flex-wrap'>
       <div>
-        {/* <Header /> */}
-        <Nav />
+        <NavHeader />
       </div>
       <Helmet>
         <script src='../node_modules/flowbite/dist/flowbite.js' type='text/javascript' />
       </Helmet>
       <Routes>
-        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} getSearch={getSearch} setMediaInput={setMediaInput} mediaForm={mediaForm} setMediaForm={setMediaForm}/>} />
-        <Route path='/media/:index' element={<MediaPlayer search={search} />} />
-        <Route path='/globe' element={<Globe />} />
-        <Route path='/persrover' element={<Perseverance persRover={persRover}/>} />
+        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} getSearch={getSearch} setMediaInput={setMediaInput} mediaForm={mediaForm} setMediaForm={setMediaForm} date={date}/>} />
+        <Route path='/media/:index/' element={<MediaPlayer search={search} />} />
+        <Route path='/globe/' element={<Globe />} />
+        <Route path='/persrover/' element={<Perseverance persRover={persRover}/>} />
+        <Route path='/astronauts/' element={<Astronauts astro={astro} />} />
+        <Route path='/astronauts/create/' element={<AstroCreate />} />
+        <Route path='/astronauts/:id' element={<AstroDetail astro={astro} getAstro={getAstro} />} />
       </Routes>
+      <Tail />
     </div>
   )
 }

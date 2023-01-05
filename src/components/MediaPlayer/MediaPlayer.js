@@ -53,10 +53,12 @@ useEffect(() => {
 
   return (
     <div class='text-center mt-4'>
-      <h2 class='text-4xl'>Media Player</h2>
-      <div class=''>
+      <h2 class='text-4xl mb-4'>Media Player</h2>
+      <div class={`${mediaType === 'video' ? 'hidden' : ''}`}>
         <img class='w-full' src={showImage && showImage}  alt='display from NASA img and Video Library'></img>
-        <video key={showVideo} controls autoPlay muted width="100%"><source src={showVideo} type="video/mp4"/>Sorry, your browser doesn't support videos.</video>
+      </div>
+      <div class={`${mediaType === 'image' ? 'hidden' : ''}`}>
+        <video class='w-full h-auto max-w-full border border-gray-700 rounded-lg' key={showVideo} controls autoPlay muted width="100%"><source src={showVideo} type="video/mp4"/>Sorry, your browser doesn't support videos.</video>
       </div>
     </div>
   )

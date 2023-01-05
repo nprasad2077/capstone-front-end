@@ -17,8 +17,8 @@ const images = [
   },
 ];
 
-const SlideShow = ({epic}) => {
-  const slideshowEpic = epic && epic.map((images) => 'https://epic.gsfc.nasa.gov/archive/natural/2022/12/25/png/'+ images.image + '.png')
+const SlideShow = ({epic, date}) => {
+  const slideshowEpic = epic && epic.map((images) => `https://epic.gsfc.nasa.gov/archive/natural/${date}/png/`+ images.image + '.png')
   const slideshowEpicJpg = epic && epic.map((images) => 'https://epic.gsfc.nasa.gov/archive/natural/2022/12/25/jpg/'+ images.image + '.jpg')
   const imagesARR = []
 
@@ -29,8 +29,6 @@ const SlideShow = ({epic}) => {
   // console.log(images);
 
 
-
-
   return (
     <div class='border border-sky-500 content-center text-center'>
       <h2 class='text-center text-2xl subpixel-antialiased font-bold'>Earth Polychromatic Imaging Camera {'(EPIC)'}</h2>
@@ -38,6 +36,8 @@ const SlideShow = ({epic}) => {
         <ImageGallery items={imagesARR} />
       </div>
       <p>This image was taken by NASA's EPIC camera onboard the NOAA DSCOVR spacecraft</p>
+      <br></br>
+      <p>The most recent images are from: {date}</p>
     </div>
   )
 }
