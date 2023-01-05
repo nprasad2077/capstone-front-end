@@ -7,12 +7,12 @@ import { Fade } from 'react-slideshow-image';
 const EPIC = ({epic}) => {
   const [counter, setCounter] = useState(0)
 
-  // console.log(epic);
+  console.log(epic);
 
   const epicMapped = epic && epic.map((images) => images.image)
-  const epicMappedDate = epic && epic.map((images) => 'https://epic.gsfc.nasa.gov/archive/natural/2022/12/25/png/'+ images.image + '.png')
+  const epicMappedDate = epic && epic.map((images) => 'https://epic.gsfc.nasa.gov/archive/natural/2023/01/02/png/'+ images.image + '.png')
 
-  // console.log(epicMappedDate);
+  console.log(epicMappedDate);
   // console.log();
 
   function counterSetUP () {

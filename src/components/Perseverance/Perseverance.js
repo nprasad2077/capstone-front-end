@@ -20,6 +20,8 @@ const navcamLeftImages = []
 const mastZoomRightImages = []
 const mastZoomLeftImages = []
 const skycamImages = []
+const fhazLeftImages = []
+const superCamImages = []
 
 const url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=1&api_key=DEMO_KEY'
 
@@ -33,6 +35,10 @@ const Perseverance = ({persRover}) => {
   const mastZoomLeftDate = []
   const skycam = []
   const skycamDate = []
+  const fhazLeft = []
+  const fhazLeftDate = []
+  const supercam = []
+  const supercamDate = []
 
   function parsePersRover(rov) {
     if (rov.camera.name === 'NAVCAM_LEFT') {
@@ -51,30 +57,46 @@ const Perseverance = ({persRover}) => {
       skycam.push(rov.img_src)
       skycamDate.push(rov.earth_date)
     }
+    if (rov.camera.name === 'FRONT_HAZCAM_LEFT_A') {
+      fhazLeft.push(rov.img_src)
+      fhazLeftDate.push(rov.earth_date)
+    }
+    if (rov.camera.name === 'SUPERCAM_RMI') {
+      supercam.push(rov.img_src)
+      supercamDate.push(rov.earth_date)
+    }
 
 
   }
 
   const persRoverMapped = persRover.photos && persRover.photos.map((rover) => parsePersRover(rover))
 
-  // console.log(persRoverMapped);
+  console.log(navcamLeftDate);
   // console.log(skycam, mastZoomRightDate);
-  console.log(navcamLeft);
+  console.log(supercam);
 
   const navcamLeftMap = persRover.photos && navcamLeft.map((cam) => navcamLeftImages.push({original: cam, thumbnail: cam}))
   const rightMastMap = persRover.photos && mastZoomRight.map((cam) => mastZoomRightImages.push({original: cam, thumbnail: cam}))
-  const leftMastMap = persRover.photos && mastZoomLeft.map(cam => mastZoomLeftImages.push({original: cam, thumbnil: cam}))
+  const leftMastMap = persRover.photos && mastZoomLeft.map(cam => mastZoomLeftImages.push({original: cam, thumbnail: cam}))
   const skycamMap = persRover.photos && skycam.map(cam => skycamImages.push({original: cam, thumbnail: cam}))
+  const fhazLeftMap = persRover.photos && fhazLeft.map(cam => fhazLeftImages.push({original: cam, thumbnail: cam}))
+  const supercamMap = persRover.photos && supercam.map(cam => superCamImages.push({original: cam, thumbnail: cam}))
 
-  console.log(mastZoomLeftImages);
+  // console.log(mastZoomLeftImages);
 
 
 
   return (
-    <div>
+    <div class='text-center'>
       <h2 class='text-center text-3xl'>Perseverance Rover</h2>
       <div class='mt-6'>
         <ImageGallery items={navcamLeftImages} />
+      </div>
+      <div class='mt-10'>
+        <ImageGallery items={superCamImages} />
+      </div>
+      <div class='mt-10'>
+        <ImageGallery items={fhazLeftImages} />
       </div>
       <div class='mt-10'>
         <ImageGallery items={mastZoomRightImages} />
@@ -84,6 +106,9 @@ const Perseverance = ({persRover}) => {
       </div>
       <div class='mt-10'>
         <ImageGallery items={skycamImages} />
+      </div>
+      <div>
+        <h1 class='text-xl mt-20 mb-4'>Earth Date for Perseverance Rover Images: {navcamLeftDate[0]}</h1>
       </div>
     </div>
   )
