@@ -34,12 +34,15 @@ const App = () => {
   const [mongo, setMongo] = useState('')
   const [persRover, setPersRover] = useState([])
   const [mediaForm, setMediaForm] = useState('')
+  const [sol, setSol] = useState(100)
 
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
-  const [sol, setSol] = useState(100)
-
   let yesterday = (( d => new Date(d.setDate(d.getDate()-1)) )(new Date)).toISOString().slice(0,10)
+  let epicDate = (( d => new Date(d.setDate(d.getDate()-2)) )(new Date)).toISOString().slice(0,10)
+  const regex = /-/gi
+  let date = epicDate.replace(regex, '/')
+  console.log(date);
 
 
   const getASOD = async () => {
@@ -74,7 +77,7 @@ const App = () => {
   const getEPIC = async () => {
     const response = await axios({
       method: 'get',
-      url: `https://epic.gsfc.nasa.gov/api/natural/date/2023-01-02`
+      url: `https://epic.gsfc.nasa.gov/api/natural/date/${epicDate}`
     })
     .then(res => setEpic(res.data))
     .catch(err => console.log(err))
@@ -160,7 +163,7 @@ const App = () => {
         <script src='../node_modules/flowbite/dist/flowbite.js' type='text/javascript' />
       </Helmet>
       <Routes>
-        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} getSearch={getSearch} setMediaInput={setMediaInput} mediaForm={mediaForm} setMediaForm={setMediaForm}/>} />
+        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} getSearch={getSearch} setMediaInput={setMediaInput} mediaForm={mediaForm} setMediaForm={setMediaForm} date={date}/>} />
         <Route path='/media/:index/' element={<MediaPlayer search={search} />} />
         <Route path='/globe/' element={<Globe />} />
         <Route path='/persrover/' element={<Perseverance persRover={persRover}/>} />

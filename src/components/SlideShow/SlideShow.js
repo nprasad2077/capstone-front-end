@@ -17,8 +17,8 @@ const images = [
   },
 ];
 
-const SlideShow = ({epic}) => {
-  const slideshowEpic = epic && epic.map((images) => 'https://epic.gsfc.nasa.gov/archive/natural/2023/01/02/png/'+ images.image + '.png')
+const SlideShow = ({epic, date}) => {
+  const slideshowEpic = epic && epic.map((images) => `https://epic.gsfc.nasa.gov/archive/natural/${date}/png/`+ images.image + '.png')
   const slideshowEpicJpg = epic && epic.map((images) => 'https://epic.gsfc.nasa.gov/archive/natural/2022/12/25/jpg/'+ images.image + '.jpg')
   const imagesARR = []
 
@@ -36,6 +36,8 @@ const SlideShow = ({epic}) => {
         <ImageGallery items={imagesARR} />
       </div>
       <p>This image was taken by NASA's EPIC camera onboard the NOAA DSCOVR spacecraft</p>
+      <br></br>
+      <p>The most recent images are from: {date}</p>
     </div>
   )
 }

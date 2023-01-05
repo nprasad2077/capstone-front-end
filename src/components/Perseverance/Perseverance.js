@@ -71,7 +71,7 @@ const Perseverance = ({persRover}) => {
 
   const persRoverMapped = persRover.photos && persRover.photos.map((rover) => parsePersRover(rover))
 
-  // console.log(persRoverMapped);
+  console.log(navcamLeftDate);
   // console.log(skycam, mastZoomRightDate);
   console.log(supercam);
 
@@ -87,7 +87,7 @@ const Perseverance = ({persRover}) => {
 
 
   return (
-    <div>
+    <div class='text-center'>
       <h2 class='text-center text-3xl'>Perseverance Rover</h2>
       <div class='mt-6'>
         <ImageGallery items={navcamLeftImages} />
@@ -106,6 +106,9 @@ const Perseverance = ({persRover}) => {
       </div>
       <div class='mt-10'>
         <ImageGallery items={skycamImages} />
+      </div>
+      <div>
+        <h1 class='text-xl mt-20 mb-4'>Earth Date for Perseverance Rover Images: {navcamLeftDate[0]}</h1>
       </div>
     </div>
   )
