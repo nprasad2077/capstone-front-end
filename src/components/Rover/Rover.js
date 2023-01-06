@@ -3,6 +3,7 @@ import { useState } from 'react'
 
 //Components
 import Gallery from '../Gallery/Gallery'
+import Accord from '../Accord/Accord'
 
 const Rover = ({rover, roverDate, sol}) => {
   const roverARR = rover.photos
@@ -140,8 +141,11 @@ const Rover = ({rover, roverDate, sol}) => {
       <h2 class='mt-6 font-bold text-orange-600'>Martian years are represented by sol. The current sol of the Mars Rover images is sol: {sol}</h2>
       <br></br>
       <div>
-        <Gallery /> 
+        <Gallery />
       </div> 
+      <div>
+        <Accord />
+      </div>
     </div>
   )
 }
