@@ -46,7 +46,7 @@ const Accord = () => {
         <p className="mb-2 text-slate-200">
         The Perseverance rover relies on the successful design of the Mars Science Laboratory rover, Curiosity. However, Perseverance has a new science and technology toolbox. An important difference is that this rover can sample and cache minerals. To do so, Perseverance has a new coring drill to collect samples. The samples are then sealed in tubes and placed on the surface of Mars. In the future, another space mission could potentially pick up the samples and bring them to Earth for detailed analysis.</p>
         <p className="mb-2 text-slate-200">
-        </p>
+        Perseverance will collect rock cores. It needs to collect rock core samples and save them for possible future study by scientists. Curiosity studied samples collected onsite, using the rover's onboard laboratory.</p>
       </Accordion.Content>
     </Accordion.Panel>
   </Accordion></div>
