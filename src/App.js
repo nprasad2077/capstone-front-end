@@ -122,7 +122,6 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
-  console.log(forums);
 
   useEffect(() => {
     getASOD()
@@ -135,7 +134,7 @@ const App = () => {
     getForums()
   }, [])
 
-
+// Image and Video Search
   const getSearch = async () => {
     const response = await axios({
       method: 'get',
@@ -169,7 +168,7 @@ const App = () => {
         <Route path='/astronauts/' element={<Astronauts astro={astro} />} />
         <Route path='/astronauts/create/' element={<AstroCreate />} />
         <Route path='/astronauts/:id' element={<AstroDetail astro={astro} getAstro={getAstro} />} />
-        <Route path='/forums' element={<Forums forums={forums}/>} />
+        <Route path='/forums' element={<Forums forums={forums} astro={astro} />} />
       </Routes>
       <Tail />
     </div>
