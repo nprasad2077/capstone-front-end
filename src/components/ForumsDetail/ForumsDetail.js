@@ -15,7 +15,6 @@ const ForumsDetail = ({forums, astro}) => {
         {map.title}
     </h5>
     <p className="font-normal text-gray-700 dark:text-gray-400">
-      {/* {map} */}
     </p>
     <img  class='' src={map.photo} alt='forum post'></img>
   </Card>

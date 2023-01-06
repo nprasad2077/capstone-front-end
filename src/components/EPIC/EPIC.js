@@ -34,7 +34,7 @@ const EPIC = ({epic}) => {
   }
 
   return (
-    <div class='border border-sky-500 object-contain content-center text-center'>
+    <div class='border-4 border-slate-900 object-contain content-center text-center'>
       <h2>EPIC</h2>
       <img src={epicMappedDate[counter]}></img>
       <button onClick={down}>PREV</button>

@@ -1,86 +1,63 @@
-# Capstone Project Front-end
+# Project Overview
 
-## Nikhil Prasad
+Planetarium serves as a dashboard and resource showcasing the planets in our galaxy and providing information about near earth objects.
 
-### Technologies Used
+## Project Description
 
-React.js
-Tailwind CSS
-Axios
+The front-end app utilizes ReactJS along with a few other technologies like Tailwind-CSS and Resium(Cesium) for the 3D-globe. The front-end makes several API calls to various NASA and US.GOV data end-points. The returned data is displayed to the user in the syle of a dashboard. 
 
-### NPM Packages
+The front-end app will also make another API call to the accompanying Django back-end server, which will store user and forum data.
 
--react-image-gallery
--react-router-dom
--axios
+## Project Links
 
-# Getting Started with Create React App
+[Deployed Frontend](https://capstone-front-end-seven.vercel.app/)
+[Deployed Backend](https://polar-everglades-56224.herokuapp.com/astronauts/)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Wireframes & Component Hierarchy
 
-## Available Scripts
+[Wireframe](https://media.git.generalassemb.ly/user/45667/files/0f8b8fa1-bef4-44b1-bc41-87278b3df362)
 
-In the project directory, you can run:
+## Components
 
-### `npm start`
+| Component | Description | 
+| --- | :---: |  
+| App | This will make the initial data pull and include React Router | 
+| NavHeader | This will render the navbar with links | 
+| Tail | This will render the footer | 
+| Home | This will render the home page. All components are rendered on the home page.| 
+| AstroCreate | Handles creation of new users or "astronauts" | 
+| AstroDelete | Handles deletion of astronaut data | 
+| AstroDetails | Displays astronaut information | 
+| AstroUpdate | Handles update of astronaut data | 
+| ASOD | Astronomy Picture of the Day|
+| Asteroids | Daily asteroid approaching log|
+| EPIC | Earth Polychromatic Imagining Camera - daily images |
+| Forums | User forums and comments |
+| Globe | Resium (Cesium) globe component for React.js |
+| Image | NASA Image and Video Library search component |
+| MediaPlayer  | Image and Video player |
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## MVP 
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- User is able to see the ASOD, Asteroid Data, Mars Rover images along with EPIC on the front page.
+- User is able to search for videos and images and view them in the media player.
+- User is able to view their positon on the globe.
+- User is able to create new 'astronaut' profiles.
 
-### `npm test`
+## Post-MVP
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Better Image handling for the Mars Rover. Too many images.
+- More robust forum functionality, this would require a back-end serever update of the models.
+- Ability to upload user photos to database.
 
-### `npm run build`
+## Other Technologies User
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- Front-end application is deployed on Vercel.
+- Django back-end server uses a PostgresSQL database all deployed on Heroku.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Issues and Resolutions
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+Project 4 for General Assembly. 
 
-### `npm run eject`
+## Built by: Nikhil Prasad.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)

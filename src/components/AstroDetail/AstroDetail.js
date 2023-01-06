@@ -16,7 +16,7 @@ const AstroDetail = ({astro}) => {
             <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-l-lg" src={astronaut.photo_url} alt=""/>
             <div class="flex flex-col justify-between p-4 leading-normal">
                 <h5 class="mb-2 text-2xl font-bold tracking-tight text-white dark:text-white">{astronaut.name}</h5>
-                <p class="mb-3 font-normal text-gray-400 dark:text-gray-400">Here are the biggest enterprise technology acquisitions of 2021 so far, in reverse chronological order.{planets}</p>
+                <p class="mb-3 font-normal text-gray-400 dark:text-gray-400">Here are the biggest space destinations this year:{planets}</p>
             </div>
         </a>
     </div></div>
