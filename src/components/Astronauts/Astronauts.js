@@ -6,7 +6,7 @@ import { Button, Card } from 'flowbite-react';
 const Astronauts = ({astro}) => {
   console.log(astro);
 
-  const astroMapped = astro.map(astro =>         <Link to={'/astronauts/' + astro.id}><div className="max-w-sm m-6">
+  const astroMapped = astro.map(astro =>         <div><Link class='' to={'/astronauts/' + astro.id}><div className=" max-w-sm m-6 ">
   <Card
     imgAlt="Meaningful alt text for an image that is not purely decorative"
     imgSrc={astro.photo_url}
@@ -19,17 +19,14 @@ const Astronauts = ({astro}) => {
       Favorite Planet: {astro.favorite_planet}
     </p>
   </Card>
-</div></Link>)
+</div></Link></div>)
 
 
 
   return (
-    <div class='flex-col text-center'>
-        <h2>Astronauts</h2>
-        <div class='flex'>
-          {astroMapped}
-        </div>
-        <Link to='/astronauts/create/'><Button color='success'>Create Astronaut</Button></Link>
+    <div class='flex-col items-center justify-center '>
+          <div class='items-center justify-center flex space-x-4 m-auto'>{astroMapped}</div>
+          <div class='flex items-center justify-center'><Link class='' to='/astronauts/create/'><Button color='success'>Create Astronaut</Button></Link></div>
     </div>
   )
 }

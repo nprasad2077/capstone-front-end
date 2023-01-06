@@ -6,13 +6,11 @@ import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import { Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
 // Script
 import { Helmet } from 'react-helmet';
 // Components
 import MediaPlayer from './components/MediaPlayer/MediaPlayer'
 import Home from './components/Home/Home'
-import Nav from './components/Nav/Nav';
 import Globe from './components/Globe/Globe'
 import Perseverance from './components/Perseverance/Perseverance';
 import Astronauts from './components/Astronauts/Astronauts';
@@ -20,7 +18,8 @@ import AstroCreate from './components/AstroCreate/AstroCreate';
 import Tail from './components/Tail/Tail';
 import AstroDetail from './components/AstroDetail/AstroDetail'
 import NavHeader from './components/NavHeader/NavHeader';
-
+import Forums from './components/Forums/Forums'
+import ForumsDetail from './components/ForumsDetail/ForumsDetail'
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -34,17 +33,31 @@ const App = () => {
   const [mongo, setMongo] = useState('')
   const [persRover, setPersRover] = useState([])
   const [mediaForm, setMediaForm] = useState('')
+  const [forums, SetForums] = useState('')
   const [sol, setSol] = useState(100)
-
+  const [lat, setLat] = useState(0)
+  const [long, setLong] = useState(0)
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
   let yesterday = (( d => new Date(d.setDate(d.getDate()-1)) )(new Date)).toISOString().slice(0,10)
   let epicDate = (( d => new Date(d.setDate(d.getDate()-2)) )(new Date)).toISOString().slice(0,10)
   const regex = /-/gi
   let date = epicDate.replace(regex, '/')
-  console.log(date);
 
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition)
+    }
+  }
 
+  const showPosition = (position) => {
+    console.log(position.coords.latitude)
+    console.log(position.coords.longitude);
+    setLat(position.coords.latitude)
+    setLong(position.coords.longitude)
+  }
+
+  
   const getASOD = async () => {
     const response = await axios({
       method: 'get',
@@ -92,15 +105,6 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
-  const getMongo = async () => {
-    const response = await axios({
-      method: 'get',
-      url: 'http://localhost:8080/'
-    })
-    .then(res => setMongo(res.data))
-    .catch(err => console.log(err))
-  }
-
   const getPersRover = async () => {
     const response = await axios({
       method: 'get',
@@ -110,6 +114,14 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
+  const getForums = async () => {
+    const repsonse = await axios({
+      method: 'get', 
+      url: 'https://polar-everglades-56224.herokuapp.com/forums/'
+    })
+    .then(res => SetForums(res.data))
+    .catch(err => console.log(err))
+  }
 
 
   useEffect(() => {
@@ -119,15 +131,11 @@ const App = () => {
     getEPIC()
     getPersRover()
     getAstro()
-    // getMongo()
+    getLocation()
+    getForums()
   }, [])
 
-  // console.log(epic);
-  // console.log(rover);
-  // console.log(astro);
-  // console.log(mongo);
-  // console.log(persRover);
-
+// Image and Video Search
   const getSearch = async () => {
     const response = await axios({
       method: 'get',
@@ -137,19 +145,10 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
-  // useEffect(() => {
-  //   getSearch()
-  // }, [])
-
-  // console.log(search);
-
   const searchDetails = search.collection && search.collection.items
-
-  // console.log(searchDetails);
 
   const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}<br></br></Link>)
 
-  // console.log(mediaInput);
 
 
 
@@ -165,11 +164,13 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} getSearch={getSearch} setMediaInput={setMediaInput} mediaForm={mediaForm} setMediaForm={setMediaForm} date={date}/>} />
         <Route path='/media/:index/' element={<MediaPlayer search={search} />} />
-        <Route path='/globe/' element={<Globe />} />
+        <Route path='/globe/' element={<Globe lat={lat} long={long} setLong={setLong} setLat={setLat} />} />
         <Route path='/persrover/' element={<Perseverance persRover={persRover}/>} />
         <Route path='/astronauts/' element={<Astronauts astro={astro} />} />
         <Route path='/astronauts/create/' element={<AstroCreate />} />
         <Route path='/astronauts/:id' element={<AstroDetail astro={astro} getAstro={getAstro} />} />
+        <Route path='/forums' element={<Forums forums={forums} astro={astro} />} />
+        <Route path='/forums/:id' element={<ForumsDetail forums={forums} astro={astro} />} />
       </Routes>
       <Tail />
     </div>

@@ -1,8 +1,13 @@
 import React from 'react'
 import { useState } from 'react'
+import ImageGallery from 'react-image-gallery';
+import { Button } from 'flowbite-react';
+
+
+//Components
+import Accord from '../Accord/Accord'
 
 const Rover = ({rover, roverDate, sol}) => {
-  // console.log(rover && rover)
   const roverARR = rover.photos
   const FHAZ = []
   const RHAZ = []
@@ -25,9 +30,6 @@ const Rover = ({rover, roverDate, sol}) => {
   const [displayCHEM, setDisplayCHEM] = useState('')
   const [displayNAVCAM, setDisplayNAVCAM] = useState('')
   const solDate = sol.toString()
- 
-
-
   function parseRovers(rov) {
     if (rov.camera.name === 'FHAZ') {
       // console.log('we have fhaz')
@@ -95,7 +97,6 @@ const Rover = ({rover, roverDate, sol}) => {
 
   function randomCHEM () {
     const random = Math.floor(Math.random() * CHEM.length)
-    // console.log(CHEM[random]);
     setDisplayCHEM(CHEM[random])
     setDisplayFHAZ('')
     setDisplayRHAZ('')
@@ -105,8 +106,6 @@ const Rover = ({rover, roverDate, sol}) => {
 
   function randomNAVCAM () {
     const random = Math.floor(Math.random() * NAVCAM.length)
-    // console.log(random);
-    // console.log(NAVCAM[random]);
     setDisplayNAVCAM(NAVCAM[random])
     setDisplayFHAZ('')
     setDisplayRHAZ('')
@@ -114,35 +113,33 @@ const Rover = ({rover, roverDate, sol}) => {
     setDisplayCHEM('')
   }
 
-// console.log(NAVCAM.length);
-
-
-
+  const NAVCAMimg = NAVCAM.map((map) =>  ({original: map, thumbnail: map}))
+  const CHEMimg = CHEM.map((chem) => ({original: chem, thumbnail: chem}))
 
   return (
-    <div class='border border-sky-500 content-center flex flex-col object-contain'>
+    <div class='border-4 border-slate-900 content-center flex flex-col object-contain p-5 mx-5 mt-2'>
       <h2 class='text-center text-2xl subpixel-antialiased font-bold text-orange-500'>Mars Rover</h2>
       <iframe class='mt-6 object-scale-down w-auto' src='https://mars.nasa.gov/layout/embed/model/?s=6' width='800' height='450' scrolling='no' frameBorder='0' allowFullScreen></iframe>
-      <button class='mt-4' onClick={randomNAVCAM}>NAVCAM</button>
-      <button onClick={randomFHAZ}>FHAZ</button>
-      <button onClick={randomRHAZ}>RHAZ</button>
-      <button onClick={randomMAST}>MAST</button>
-      <button onClick={randomCHEM}>CHEM</button>
-      <p>NAVCAM: </p>
+      <Button color='dark' onClick={randomNAVCAM}>NAVCAM</Button>
+      <Button color='dark' onClick={randomFHAZ}>FHAZ</Button>
+      <Button  color='dark' onClick={randomRHAZ}>RHAZ</Button>
+      <Button  color='dark' onClick={randomMAST}>MAST</Button>
+      <Button color='dark' onClick={randomCHEM}>CHEM</Button>
+      <p class=''></p>
       <img src={displayNAVCAM}></img>
-      <p>FHAZ: </p>
+      <p></p>
       <img src={displayFHAZ}></img>
-      <p>RHAZ: </p>
+      <p></p>
       <img src={displayRHAZ}></img>
-      <p>MAST: </p>
+      <p></p>
       <img src={displayMAST}></img>
-      <p>CHEM: </p>
+      <p></p>
       <img src={displayCHEM}></img>
-      <h2 class='mt-10'>A mars years is 687 Earth days.</h2>
-      <br></br>
-      <h2>For any planet, a year is the time it takes to make one orbit around the sun.</h2>
-      <h2 class='mt-4'>Because Mars is farther away from the sun, it has to travel a greater distance around the sun. It takes Mars about twice as long as it does for Earth to make one circle around the sun. Therefore, a year on Mars lasts twice as long.</h2>
-      <h2 class='mt-6 font-bold text-orange-600'>Martian years are represented by sol. The current sol of the Mars Rover images is sol: {sol}</h2>
+      <div>
+  </div>
+      <div class='mt-6'>
+        <Accord />
+      </div>
     </div>
   )
 }

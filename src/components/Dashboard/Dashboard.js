@@ -11,13 +11,13 @@ import SlideShow from '../SlideShow/SlideShow'
 const Dashboard = ({asod, eonet, neo, rover, today, epic, roverDate, sol}) => {
   return (
     <div class='flex'>
-      <div class='w-1/3'>
+      <div class='flex-1'>
         <ASOD asod={asod}/>
       </div>
-      <div class='w-1/3'>
+      <div class='flex-1'>
         <EONET neo={neo} today={today}/>
       </div>
-      <div class='w-1/3 overflow-visible object-contain'>
+      <div class='flex-1 overflow-visible object-contain'>
         <Rover rover={rover} roverDate={roverDate} sol={sol} />
       </div>
     </div>
