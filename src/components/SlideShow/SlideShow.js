@@ -24,9 +24,6 @@ const SlideShow = ({epic, date}) => {
 
   const imagesCreate = epic && slideshowEpic.map((images) => imagesARR.push({original: images, thumbnail: images}))
 
-  // console.log(slideshowEpicJpg)
-  // console.log(imagesARR)
-  // console.log(images);
 
 
   return (

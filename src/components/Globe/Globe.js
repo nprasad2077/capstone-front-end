@@ -8,7 +8,6 @@ import { ArcGisMapServerImageryProvider } from 'cesium';
 
 const Globe = ({lat, long, setLat, setLong}) => {
   const [pixelNum, setPixelNum] = useState(20)
-  console.log(long, lat);
   const [latChange, setLatChange] = useState(0)
   const [longChange, setLongChange] = useState(0)
 
