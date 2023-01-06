@@ -13,7 +13,6 @@ import { Helmet } from 'react-helmet';
 // Components
 import MediaPlayer from './components/MediaPlayer/MediaPlayer'
 import Home from './components/Home/Home'
-import Nav from './components/Nav/Nav';
 import Globe from './components/Globe/Globe'
 import Perseverance from './components/Perseverance/Perseverance';
 import Astronauts from './components/Astronauts/Astronauts';
@@ -36,6 +35,8 @@ const App = () => {
   const [persRover, setPersRover] = useState([])
   const [mediaForm, setMediaForm] = useState('')
   const [sol, setSol] = useState(100)
+  const [lat, setLat] = useState(0)
+  const [long, setLong] = useState(0)
 
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
@@ -54,6 +55,8 @@ const App = () => {
   const showPosition = (position) => {
     console.log(position.coords.latitude)
     console.log(position.coords.longitude);
+    setLat(position.coords.latitude)
+    setLong(position.coords.longitude)
   }
 
   
@@ -135,6 +138,7 @@ const App = () => {
     getEPIC()
     getPersRover()
     getAstro()
+    getLocation()
     // getMongo()
   }, [])
 
@@ -181,13 +185,12 @@ const App = () => {
       <Routes>
         <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} getSearch={getSearch} setMediaInput={setMediaInput} mediaForm={mediaForm} setMediaForm={setMediaForm} date={date}/>} />
         <Route path='/media/:index/' element={<MediaPlayer search={search} />} />
-        <Route path='/globe/' element={<Globe />} />
+        <Route path='/globe/' element={<Globe lat={lat} long={long} setLong={setLong} setLat={setLat} />} />
         <Route path='/persrover/' element={<Perseverance persRover={persRover}/>} />
         <Route path='/astronauts/' element={<Astronauts astro={astro} />} />
         <Route path='/astronauts/create/' element={<AstroCreate />} />
         <Route path='/astronauts/:id' element={<AstroDetail astro={astro} getAstro={getAstro} />} />
       </Routes>
-      <button onClick={getLocation()}>Get Location</button>
       <Tail />
     </div>
   )
