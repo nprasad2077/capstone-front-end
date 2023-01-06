@@ -7,6 +7,7 @@ import 'react-slideshow-image/dist/styles.css'
 import { Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
 
+
 // Script
 import { Helmet } from 'react-helmet';
 // Components
@@ -42,7 +43,22 @@ const App = () => {
   let epicDate = (( d => new Date(d.setDate(d.getDate()-2)) )(new Date)).toISOString().slice(0,10)
   const regex = /-/gi
   let date = epicDate.replace(regex, '/')
-  console.log(date);
+  // console.log(date);
+
+  const getLocation = () => {
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(showPosition)
+    }
+  }
+
+  const showPosition = (position) => {
+    console.log(position.coords.latitude)
+    console.log(position.coords.longitude);
+  }
+
+  
+
+
 
 
   const getASOD = async () => {
@@ -171,6 +187,7 @@ const App = () => {
         <Route path='/astronauts/create/' element={<AstroCreate />} />
         <Route path='/astronauts/:id' element={<AstroDetail astro={astro} getAstro={getAstro} />} />
       </Routes>
+      <button onClick={getLocation()}>Get Location</button>
       <Tail />
     </div>
   )
