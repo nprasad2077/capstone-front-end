@@ -124,7 +124,7 @@ const Rover = ({rover, roverDate, sol}) => {
     <div class='border border-sky-500 content-center flex flex-col object-contain text-center'>
       <h2 class='text-center text-2xl subpixel-antialiased font-bold text-orange-500'>Mars Rover</h2>
       <iframe class='mt-6 object-scale-down w-auto' src='https://mars.nasa.gov/layout/embed/model/?s=6' width='800' height='450' scrolling='no' frameBorder='0' allowFullScreen></iframe>
-      {/* <button class='mt-4' onClick={randomNAVCAM}>NAVCAM</button>
+      <button class='mt-4' onClick={randomNAVCAM}>NAVCAM</button>
       <button onClick={randomFHAZ}>FHAZ</button>
       <button onClick={randomRHAZ}>RHAZ</button>
       <button onClick={randomMAST}>MAST</button>
@@ -144,15 +144,8 @@ const Rover = ({rover, roverDate, sol}) => {
       <h2>For any planet, a year is the time it takes to make one orbit around the sun.</h2>
       <h2 class='mt-4'>Because Mars is farther away from the sun, it has to travel a greater distance around the sun. It takes Mars about twice as long as it does for Earth to make one circle around the sun. Therefore, a year on Mars lasts twice as long.</h2>
       <h2 class='mt-6 font-bold text-orange-600'>Martian years are represented by sol. The current sol of the Mars Rover images is sol: {sol}</h2>
-      <br></br> */}
+      <br></br>
       <h1>NAVCAM</h1>
-      <div>
-        <ImageGallery  items={NAVCAMimg} />
-      </div>
-      <h1>CHEM</h1>
-      <div>
-        <ImageGallery  items={CHEMimg} />
-      </div>
       <div class='mt-10'>
         <Accord />
       </div>
