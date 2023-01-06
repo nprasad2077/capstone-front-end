@@ -1,8 +1,10 @@
 import React from 'react'
 import { useState } from 'react'
 
+//Components
+import Gallery from '../Gallery/Gallery'
+
 const Rover = ({rover, roverDate, sol}) => {
-  // console.log(rover && rover)
   const roverARR = rover.photos
   const FHAZ = []
   const RHAZ = []
@@ -25,9 +27,6 @@ const Rover = ({rover, roverDate, sol}) => {
   const [displayCHEM, setDisplayCHEM] = useState('')
   const [displayNAVCAM, setDisplayNAVCAM] = useState('')
   const solDate = sol.toString()
- 
-
-
   function parseRovers(rov) {
     if (rov.camera.name === 'FHAZ') {
       // console.log('we have fhaz')
@@ -114,10 +113,6 @@ const Rover = ({rover, roverDate, sol}) => {
     setDisplayCHEM('')
   }
 
-// console.log(NAVCAM.length);
-
-
-
 
   return (
     <div class='border border-sky-500 content-center flex flex-col object-contain'>
@@ -143,6 +138,10 @@ const Rover = ({rover, roverDate, sol}) => {
       <h2>For any planet, a year is the time it takes to make one orbit around the sun.</h2>
       <h2 class='mt-4'>Because Mars is farther away from the sun, it has to travel a greater distance around the sun. It takes Mars about twice as long as it does for Earth to make one circle around the sun. Therefore, a year on Mars lasts twice as long.</h2>
       <h2 class='mt-6 font-bold text-orange-600'>Martian years are represented by sol. The current sol of the Mars Rover images is sol: {sol}</h2>
+      <br></br>
+      <div>
+        <Gallery /> 
+      </div> 
     </div>
   )
 }

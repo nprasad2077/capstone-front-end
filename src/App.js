@@ -6,8 +6,6 @@ import { Fade } from 'react-slideshow-image';
 import 'react-slideshow-image/dist/styles.css'
 import { Routes, Route } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-
-
 // Script
 import { Helmet } from 'react-helmet';
 // Components
@@ -20,7 +18,6 @@ import AstroCreate from './components/AstroCreate/AstroCreate';
 import Tail from './components/Tail/Tail';
 import AstroDetail from './components/AstroDetail/AstroDetail'
 import NavHeader from './components/NavHeader/NavHeader';
-
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -37,14 +34,12 @@ const App = () => {
   const [sol, setSol] = useState(100)
   const [lat, setLat] = useState(0)
   const [long, setLong] = useState(0)
-
   let today = new Date().toISOString().slice(0, 10)
   let roverDate = '2021-' + new Date().toISOString().slice(5, 10)
   let yesterday = (( d => new Date(d.setDate(d.getDate()-1)) )(new Date)).toISOString().slice(0,10)
   let epicDate = (( d => new Date(d.setDate(d.getDate()-2)) )(new Date)).toISOString().slice(0,10)
   const regex = /-/gi
   let date = epicDate.replace(regex, '/')
-  // console.log(date);
 
   const getLocation = () => {
     if (navigator.geolocation) {
@@ -60,10 +55,6 @@ const App = () => {
   }
 
   
-
-
-
-
   const getASOD = async () => {
     const response = await axios({
       method: 'get',
@@ -111,15 +102,6 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
-  const getMongo = async () => {
-    const response = await axios({
-      method: 'get',
-      url: 'http://localhost:8080/'
-    })
-    .then(res => setMongo(res.data))
-    .catch(err => console.log(err))
-  }
-
   const getPersRover = async () => {
     const response = await axios({
       method: 'get',
@@ -129,8 +111,6 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
-
-
   useEffect(() => {
     getASOD()
     getNEO()
@@ -139,14 +119,8 @@ const App = () => {
     getPersRover()
     getAstro()
     getLocation()
-    // getMongo()
   }, [])
 
-  // console.log(epic);
-  // console.log(rover);
-  // console.log(astro);
-  // console.log(mongo);
-  // console.log(persRover);
 
   const getSearch = async () => {
     const response = await axios({
@@ -157,19 +131,10 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
-  // useEffect(() => {
-  //   getSearch()
-  // }, [])
-
-  // console.log(search);
-
   const searchDetails = search.collection && search.collection.items
-
-  // console.log(searchDetails);
 
   const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}<br></br></Link>)
 
-  // console.log(mediaInput);
 
 
 
