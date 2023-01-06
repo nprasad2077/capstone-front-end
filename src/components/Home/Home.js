@@ -3,7 +3,6 @@ import React from 'react'
 // components
 import Dashboard from '../Dashboard/Dashboard'
 import DashboardTwo from '../DashboardTwo/DashboardTwo'
-import Gallery from '../Gallery/Gallery'
 
 const Home = ({asod, eonet, neo, rover, today, epic, roverDate, search, setSearch, searchMapped, mediaInput, setMediaInput, sol, getSearch, mediaForm, setMediaForm, date}) => {
   return (
