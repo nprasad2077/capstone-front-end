@@ -11,15 +11,13 @@ const Forums = ({forums, astro}) => {
     <h5 className="text-2xl font-bold tracking-tight text-black">
         {map.title}
     </h5>
-    <img  class='' src={map.photo} alt='forum post'></img>
   </Card>
 </ div ></Link>)
 
 
-
   return (
-    <div>
-      {forumsMap}
+    <div class='flex-col items-center justify-center'>
+      <div class='flex items-center justify-center'>{forumsMap}</div>
     </div>
   )
 }

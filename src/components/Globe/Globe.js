@@ -5,9 +5,9 @@ import { Viewer, Entity, PointGraphics, EntityDescription, CameraFlyTo, ImageryL
 import { useState } from 'react';
 import { ArcGisMapServerImageryProvider } from 'cesium';
 
-const imageryProvider = new ArcGisMapServerImageryProvider({
-  url: "//services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
-})
+// const imageryProvider = new ArcGisMapServerImageryProvider({
+//   url: "//services.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer",
+// })
 
 
 const Globe = ({lat, long, setLat, setLong}) => {

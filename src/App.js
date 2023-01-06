@@ -170,7 +170,7 @@ const App = () => {
         <Route path='/astronauts/create/' element={<AstroCreate />} />
         <Route path='/astronauts/:id' element={<AstroDetail astro={astro} getAstro={getAstro} />} />
         <Route path='/forums' element={<Forums forums={forums} astro={astro} />} />
-        <Route path='/forums/:id' element={<ForumsDetail />} />
+        <Route path='/forums/:id' element={<ForumsDetail forums={forums} astro={astro} />} />
       </Routes>
       <Tail />
     </div>
