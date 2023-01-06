@@ -32,6 +32,7 @@ const App = () => {
   const [mongo, setMongo] = useState('')
   const [persRover, setPersRover] = useState([])
   const [mediaForm, setMediaForm] = useState('')
+  const [forums, SetForums] = useState('')
   const [sol, setSol] = useState(100)
   const [lat, setLat] = useState(0)
   const [long, setLong] = useState(0)
@@ -112,6 +113,17 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
+  const getForums = async () => {
+    const repsonse = await axios({
+      method: 'get', 
+      url: 'https://polar-everglades-56224.herokuapp.com/forums/'
+    })
+    .then(res => SetForums(res.data))
+    .catch(err => console.log(err))
+  }
+
+  console.log(forums);
+
   useEffect(() => {
     getASOD()
     getNEO()
@@ -120,6 +132,7 @@ const App = () => {
     getPersRover()
     getAstro()
     getLocation()
+    getForums()
   }, [])
 
 
@@ -156,7 +169,7 @@ const App = () => {
         <Route path='/astronauts/' element={<Astronauts astro={astro} />} />
         <Route path='/astronauts/create/' element={<AstroCreate />} />
         <Route path='/astronauts/:id' element={<AstroDetail astro={astro} getAstro={getAstro} />} />
-        <Route path='/forums' element={<Forums />} />
+        <Route path='/forums' element={<Forums forums={forums}/>} />
       </Routes>
       <Tail />
     </div>
