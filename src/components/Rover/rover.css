@@ -1,0 +1,13 @@
+.wide-button {
+    width: 80%;
+    margin: 0.5rem;
+}
+
+.color {
+    color: #f8fafc;
+    background-color: #f97316;
+}
+.color-2 {
+    color: black;
+    background-color: #f8fafc;
+}

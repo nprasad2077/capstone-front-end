@@ -2,6 +2,7 @@ import React from 'react'
 import { useState } from 'react'
 import ImageGallery from 'react-image-gallery';
 import { Button } from 'flowbite-react';
+import './rover.css'
 
 
 //Components
@@ -117,15 +118,17 @@ const Rover = ({rover, roverDate, sol}) => {
   const CHEMimg = CHEM.map((chem) => ({original: chem, thumbnail: chem}))
 
   return (
-    <div class='border-4 border-slate-900 content-center flex flex-col object-contain p-5 ml-5 mt-2'>
+    <div class='border-4 border-slate-900 content-center flex flex-col object-contain p-5 ml-5 mt-2 bg-slate-800'>
       <h2 class='text-center text-2xl subpixel-antialiased font-bold text-orange-500'>Mars Rover</h2>
       <iframe class='mt-6 object-scale-down w-auto' src='https://mars.nasa.gov/layout/embed/model/?s=6' width='800' height='450' scrolling='no' frameBorder='0' allowFullScreen></iframe>
-      <Button color='dark' onClick={randomNAVCAM}>NAVCAM</Button>
-      <Button color='dark' onClick={randomFHAZ}>FHAZ</Button>
-      <Button  color='dark' onClick={randomRHAZ}>RHAZ</Button>
-      <Button  color='dark' onClick={randomMAST}>MAST</Button>
-      <Button color='dark' onClick={randomCHEM}>CHEM</Button>
-      <p class=''></p>
+      <div class='mt-10 w-auto text-center justify-center flex'>
+        <Button className='wide-button color'  onClick={randomNAVCAM}>NAVCAM</Button>
+        <Button className='wide-button color-2' onClick={randomFHAZ}>FHAZ</Button>
+        <Button  className='wide-button color'  onClick={randomRHAZ}>RHAZ</Button>
+        <Button  className='wide-button color-2' onClick={randomMAST}>MAST</Button>
+        <Button className='wide-button color' onClick={randomCHEM}>CHEM</Button>
+      </div>
+      <p class='mt-5'></p>
       <img src={displayNAVCAM}></img>
       <p></p>
       <img src={displayFHAZ}></img>
