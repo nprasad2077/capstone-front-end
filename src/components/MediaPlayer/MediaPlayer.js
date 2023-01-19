@@ -58,7 +58,7 @@ useEffect(() => {
         <img class='w-full' src={showImage && showImage}  alt='display from NASA img and Video Library'></img>
       </div>
       <div class={`${mediaType === 'image' ? 'hidden' : ''}`}>
-        <video class='w-full h-auto max-w-full border border-gray-700 rounded-lg' key={showVideo} controls autoPlay muted width="100%"><source src={showVideo} type="video/mp4"/>Sorry, your browser doesn't support videos.</video>
+        <video class='w-full h-auto max-w-full border border-gray-700 rounded-lg' key={showVideo} controls autoPlay width="100%"><source src={showVideo} type="video/mp4"/>Sorry, your browser doesn't support videos.</video>
       </div>
     </div>
   )
