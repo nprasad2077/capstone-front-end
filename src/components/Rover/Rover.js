@@ -118,7 +118,7 @@ const Rover = ({rover, roverDate, sol}) => {
   const CHEMimg = CHEM.map((chem) => ({original: chem, thumbnail: chem}))
 
   return (
-    <div class='border-4 border-slate-900 content-center flex flex-col object-contain p-5 ml-5 mt-2 bg-slate-800'>
+    <div class='border-2 border-slate-300 content-center flex flex-col object-contain p-5 mx-5 mt-5 bg-slate-800'>
       <h2 class='text-center text-2xl subpixel-antialiased font-bold text-orange-500'>Mars Rover</h2>
       <iframe class='mt-6 object-scale-down w-auto' src='https://mars.nasa.gov/layout/embed/model/?s=6' width='800' height='450' scrolling='no' frameBorder='0' allowFullScreen></iframe>
       <div class='mt-10 w-auto text-center justify-center flex'>

@@ -14,7 +14,7 @@ const SlideShow = ({epic, date}) => {
 
 
   return (
-    <div class='mr-5 mb-2 mt-2 border-4 border-slate-900 p-5 content-center text-center'>
+    <div class='mx-5 mb-2 mt-12 border-2 border-slate-300 p-5 content-center text-center bg-slate-800'>
       <h2 class='text-center text-2xl subpixel-antialiased font-bold'>Earth Polychromatic Imaging Camera {'(EPIC)'}</h2>
       <div class='mt-4'>
         <ImageGallery items={imagesARR} />

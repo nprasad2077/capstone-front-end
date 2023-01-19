@@ -4,9 +4,6 @@ import React from 'react'
 import ASOD from '../ASOD/ASOD'
 import EONET from '../Asteroids/Asteroids'
 import Rover from '../Rover/Rover'
-import EPIC from '../EPIC/EPIC'
-import SlideShow from '../SlideShow/SlideShow'
-
 
 const Dashboard = ({asod, eonet, neo, rover, today, epic, roverDate, sol}) => {
   return (
