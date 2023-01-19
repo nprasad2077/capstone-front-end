@@ -16,13 +16,14 @@
 
 .color, .color-2 {
     border: none;
-    padding: 15px 32px;
+    padding: 5px 5px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
     margin: 4px 2px;
     cursor: pointer;
+    text-align: center;
 }
 
 .color:hover {
