@@ -2,7 +2,6 @@ import React from 'react'
 
 // Components
 import SlideShow from '../SlideShow/SlideShow'
-import EPIC from '../EPIC/EPIC'
 import Image from '../Image/Image'
 
 const DashboardTwo = ({epic, searchMapped, search, mediaInput, setMediaInput, getSearch, mediaForm, setMediaForm, date}) => {
