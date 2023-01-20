@@ -4,24 +4,35 @@ import { useParams } from 'react-router-dom';
 import { Button } from 'flowbite-react';
 import axios from 'axios';
 import { useEffect } from 'react';
+import { TextInput, Checkbox, Label } from 'flowbite-react';
 
 const AstroDetail = ({astro}) => {
   const {id} = useParams()
   const [show, setShow] = React.useState(false);
+  const [name, setName] = React.useState('');
+  const [favoritePlanet, setFavoritePlanet] = React.useState('');
+  const [photoUrl, setPhotoUrl] = React.useState('');
+  const [planetsArr, setPlanetsArr] = React.useState(['test', 'test2']);
   const astronaut = astro.find(element => element.id == id)
   const planets = astronaut.planets.map(planet => <p> {planet} </p>)
 
   const updateInfo = () => {
     axios.put(`https://polar-everglades-56224.herokuapp.com/astronauts/${id}`, {
-      name: 'New Name',
-      favorite_url: 'https://www.nasa.gov/sites/default/files/thumbnails/image/iss056e001001.jpg',
-      photo_url: 'https://www.nasa.gov/sites/default/files/thumbnails/image/iss056e001001.jpg',
-      planets: ['Mars', 'Venus', 'Jupiter']
+      name: name,
+      favorite_planet: favoritePlanet,
+      photo_url: photoUrl,
+      planets: planetsArr
     })
   }
 
+  const test = () => {console.log('test')}
+
+  const useUpdateInfo = () => { useEffect(() => { updateInfo() }, []) }
+
   const showModal = () => { setShow(true) }
   const hideModal = () => { setShow(false) }
+
+  console.log(planetsArr);
 
 
   return (
@@ -41,10 +52,23 @@ const AstroDetail = ({astro}) => {
       <Button onClick={showModal}>Update information</Button>
     </div>
 
-    <ReactModal isOpen={show}>
-      <Button onClick={hideModal}>X</Button>
-      <p>Hello</p>
-      <Button onClick={updateInfo}>Update</Button>
+    <ReactModal isOpen={show} shouldCloseOnOverlayClick={true} shouldCloseOnEsc={true} onRequestClose={hideModal}>
+      <div class='bg-slate-700'>
+        <Button onClick={hideModal}>X</Button>
+        <h1 class='text-4xl font-bold text-center text-white mb-4'>Update Astronaut</h1>
+
+        <div class='flex flex-col items-center justify-center text-slate-50 space-y-4' >
+          <div class='mt-6'></div>
+            <TextInput placeholder='Name' onChange={(e) => setName(e.target.value)} required={true} />
+            <TextInput placeholder='Favorite Planet' onChange={(e) => setFavoritePlanet(e.target.value)}/>
+            <TextInput placeholder='Photo URL' onChange={(e) => setPhotoUrl(e.target.value)} />
+            {/* <TextInput placeholder='Favorite Space Objects' onChange={(e) => setPlanetsArr(e.target.value)}/> */}
+            <Button onClick={updateInfo}>Update</Button>
+        </div>
+
+
+
+      </div>
     </ReactModal>
     
     </div>
