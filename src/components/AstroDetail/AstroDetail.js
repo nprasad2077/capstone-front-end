@@ -1,4 +1,5 @@
 import React from 'react'
+import ReactModal from 'react-modal';
 import { useParams } from 'react-router-dom';
 import { Button } from 'flowbite-react';
 import axios from 'axios';
@@ -35,6 +36,8 @@ const AstroDetail = ({astro}) => {
     <div>
       <Button onClick={updateInfo}>Update information</Button>
     </div>
+
+    <ReactModal isOpen={true} />
     
     </div>
   )
