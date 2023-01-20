@@ -7,6 +7,7 @@ import { useEffect } from 'react';
 
 const AstroDetail = ({astro}) => {
   const {id} = useParams()
+  const [show, setShow] = React.useState(false);
   const astronaut = astro.find(element => element.id == id)
   const planets = astronaut.planets.map(planet => <p> {planet} </p>)
 
@@ -18,6 +19,9 @@ const AstroDetail = ({astro}) => {
       planets: ['Mars', 'Venus', 'Jupiter']
     })
   }
+
+  const showModal = () => { setShow(true) }
+  const hideModal = () => { setShow(false) }
 
 
   return (
@@ -34,10 +38,14 @@ const AstroDetail = ({astro}) => {
     </div>
 
     <div>
-      <Button onClick={updateInfo}>Update information</Button>
+      <Button onClick={showModal}>Update information</Button>
     </div>
 
-    <ReactModal isOpen={true} />
+    <ReactModal isOpen={show}>
+      <Button onClick={hideModal}>X</Button>
+      <p>Hello</p>
+      <Button onClick={updateInfo}>Update</Button>
+    </ReactModal>
     
     </div>
   )
