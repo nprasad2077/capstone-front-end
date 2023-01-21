@@ -25,9 +25,12 @@ const AstroDetail = ({astro}) => {
     })
   }
 
+  const deleteInfo = () => {
+    axios.delete(`https://polar-everglades-56224.herokuapp.com/astronauts/${id}`)
+  }
+
   const test = () => {console.log('test')}
 
-  const useUpdateInfo = () => { useEffect(() => { updateInfo() }, []) }
 
   const showModal = () => { setShow(true) }
   const hideModal = () => { setShow(false) }
@@ -50,6 +53,9 @@ const AstroDetail = ({astro}) => {
 
     <div>
       <Button onClick={showModal}>Update information</Button>
+    </div>
+    <div>
+      <Button color='failure' onClick={deleteInfo}>Delete Astronaut</Button>
     </div>
 
     <ReactModal isOpen={show} shouldCloseOnOverlayClick={true} shouldCloseOnEsc={true} onRequestClose={hideModal}>
