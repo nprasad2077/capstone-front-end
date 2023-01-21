@@ -3,11 +3,12 @@ import ReactModal from 'react-modal';
 import { useParams } from 'react-router-dom';
 import { Button } from 'flowbite-react';
 import axios from 'axios';
-import { useEffect } from 'react';
 import { TextInput, Checkbox, Label } from 'flowbite-react';
+import { useNavigate } from 'react-router-dom';
 
 const AstroDetail = ({astro}) => {
   const {id} = useParams()
+  const navigate = useNavigate();
   const [show, setShow] = React.useState(false);
   const [name, setName] = React.useState('');
   const [favoritePlanet, setFavoritePlanet] = React.useState('');
@@ -15,6 +16,8 @@ const AstroDetail = ({astro}) => {
   const [planetsArr, setPlanetsArr] = React.useState(['test', 'test2']);
   const astronaut = astro && astro.find(element => element.id == id)
   const planets = astro && astronaut.planets.map(planet => <p> {planet} </p>)
+
+  const goBack = () => {navigate(-1)}
 
   const updateInfo = () => {
     axios.put(`https://polar-everglades-56224.herokuapp.com/astronauts/${id}`, {
@@ -27,6 +30,8 @@ const AstroDetail = ({astro}) => {
 
   const deleteInfo = () => {
     axios.delete(`https://polar-everglades-56224.herokuapp.com/astronauts/${id}`)
+    goBack()
+    setTimeout(() => {window.location.reload()}, 300)
   }
 
   const test = () => {console.log('test')}
