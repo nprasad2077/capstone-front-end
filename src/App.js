@@ -166,10 +166,10 @@ const App = () => {
         <Route path='/media/:index/' element={<MediaPlayer search={search} />} />
         <Route path='/globe/' element={<Globe lat={lat} long={long} setLong={setLong} setLat={setLat} />} />
         <Route path='/persrover/' element={<Perseverance persRover={persRover}/>} />
-        <Route path='/astronauts/' element={<Astronauts astro={astro} />} />
+        <Route path='/astronauts/' element={<Astronauts astro={astro} getAstro={getAstro} />} />
         <Route path='/astronauts/create/' element={<AstroCreate />} />
         <Route path='/astronauts/:id' element={<AstroDetail astro={astro} getAstro={getAstro} />} />
-        <Route path='/forums' element={<Forums forums={forums} astro={astro} />} />
+        <Route path='/forums' element={<Forums forums={forums} astro={astro} getAstro={getAstro} />} />
         <Route path='/forums/:id' element={<ForumsDetail forums={forums} astro={astro} />} />
       </Routes>
       <Tail />
