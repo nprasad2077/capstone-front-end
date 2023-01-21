@@ -13,8 +13,8 @@ const AstroDetail = ({astro}) => {
   const [favoritePlanet, setFavoritePlanet] = React.useState('');
   const [photoUrl, setPhotoUrl] = React.useState('');
   const [planetsArr, setPlanetsArr] = React.useState(['test', 'test2']);
-  const astronaut = astro.find(element => element.id == id)
-  const planets = astronaut.planets.map(planet => <p> {planet} </p>)
+  const astronaut = astro && astro.find(element => element.id == id)
+  const planets = astro && astronaut.planets.map(planet => <p> {planet} </p>)
 
   const updateInfo = () => {
     axios.put(`https://polar-everglades-56224.herokuapp.com/astronauts/${id}`, {

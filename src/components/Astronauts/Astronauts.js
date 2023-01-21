@@ -5,9 +5,8 @@ import { useEffect } from 'react';
 
 
 const Astronauts = ({astro, getAstro}) => {
-  console.log(astro);
 
-  useEffect(() => {getAstro(); console.log('get');}, [])
+  useEffect(() => {getAstro()}, [])
 
   const astroMapped = astro && astro.map(astro =>         <div><Link class='' to={'/astronauts/' + astro.id}><div className=" max-w-sm m-6 ">
   <Card
