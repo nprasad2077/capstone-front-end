@@ -44,7 +44,13 @@ const updateForumPost = () => {
   })
 }
 
-
+const deleteForumPost = () => {
+  const response = axios.delete('https://polar-everglades-56224.herokuapp.com/forums/' + findForum.id)
+  .then((response) => {
+    console.log(response);
+    if (response.status === 204){alert('Forum Post Deleted')} 
+  })
+}
 const showModal = () => { setShow(true) }
 const hideModal = () => { setShow(false) }
 
@@ -75,6 +81,7 @@ const updateStack = () => {
           <h1>Update Forum Post</h1>
           <Button onClick={hideModal}>X</Button>
           <Button onClick={updateStack}>Update</Button>
+          <Button onClick={deleteForumPost} color='failure'>Delete</Button>
           <div>
             <input type='text' value={postUpdate.title} onChange={(e) => SetPostUpdate({...postUpdate, title: e.target.value})}></input>
             <input type='text' value={postUpdate.photo} onChange={(e) => SetPostUpdate({...postUpdate, photo: e.target.value})}></input>
