@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { Card, Button } from 'flowbite-react';
 import { Link } from 'react-router-dom';
 import axios from 'axios';
+import ReactModal from 'react-modal';
 
 const Forums = ({forums, astro}) => {
   const [forumData, setForumData] = useState({
@@ -11,6 +12,7 @@ const Forums = ({forums, astro}) => {
     preview_url: 'testing'
   })
   const postURL = 'https://polar-everglades-56224.herokuapp.com/forums/'
+  const [show, setShow] = useState(false)
 
   console.log(forums, astro);
   console.log(forumData);
@@ -33,15 +35,47 @@ const Forums = ({forums, astro}) => {
     })
   }
 
+  const showModal = () => { setShow(true) }
+  const hideModal = () => { setShow(false) }
+
+  const createStack = () => {
+    createPost()
+    hideModal()
+  }
+
 
 
   return (
     <div class='flex-col items-center justify-center'>
       <div class='flex items-center justify-center'>{forumsMap}</div>
       <div class='flex items-center justify-center'>
-        <Button color="success" onClick={createPost}>
+        <Button color="success" onClick={showModal}>
           Create Forum Post
         </Button>
+      </div>
+      <div>
+        <ReactModal isOpen={show}>
+          <div>
+            <Button color="failure" onClick={hideModal}> X </Button>
+          </div>
+          <div class='flex flex-col items-center justify-center'>
+            <div class='flex items-center justify-center'>
+              <input type='text' placeholder='Title' onChange={(e) => setForumData({...forumData, title: e.target.value})}></input>
+            </div>
+            <div class='flex items-center justify-center'>
+              <input type='text' placeholder='Photo URL' onChange={(e) => setForumData({...forumData, photo: e.target.value})}></input>
+            </div>
+            <div class='flex items-center justify-center'>
+              <input type='text' placeholder='Preview URL' onChange={(e) => setForumData({...forumData, preview_url: e.target.value})}></input>
+            </div>
+            <div class='flex items-center justify-center'>
+              <Button color="success" onClick={createStack}>
+                Create Forum Post
+              </Button>
+            </div>
+          </div>
+
+        </ReactModal>
       </div>
     </div>
   )
