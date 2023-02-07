@@ -10,7 +10,7 @@ const ForumsDetail = ({forums, astro}) => {
   const [show, setShow] = useState(false)
   console.log(forums, astro);
 
-  const findForum = forums.find((forum) => forum.id === parseInt(id))
+  const findForum = forums && forums.find((forum) => forum.id === parseInt(id))
   console.log(findForum);
   const [postUpdate, SetPostUpdate] = useState({
     astronaut_id: findForum.astronaut_id,
@@ -19,7 +19,7 @@ const ForumsDetail = ({forums, astro}) => {
     preview_url: findForum.preview_url
   })
 
-  const forumsMapDetail = forums.map((map) => <div class='w-96 self-center'>
+  const forumsMapDetail = forums && forums.map((map) => <div class='w-96 self-center'>
   <Card>
     <h5 className="text-2xl font-bold tracking-tight text-black">
         {map.title}
@@ -30,7 +30,7 @@ const ForumsDetail = ({forums, astro}) => {
   </Card>
 </ div >)
 
-const commentsMap = forums.map((map) => <div class='w-96 mt-6'><Card>
+const commentsMap = forums && forums.map((map) => <div class='w-96 mt-6'><Card>
 <p className="font-normal text-gray-400">{map.preview_url}</p>
 </Card></div>)
 

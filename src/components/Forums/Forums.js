@@ -15,7 +15,7 @@ const Forums = ({forums, astro}) => {
   console.log(forums, astro);
   console.log(forumData);
 
-  const forumsMap = forums.map((map) => <Link to={'/forums/' + map.id}><div class='w-96'>
+  const forumsMap = forums && forums.map((map) => <Link to={'/forums/' + map.id}><div class='w-96'>
   <Card>
     <h5 className="text-2xl font-bold tracking-tight text-black">
         {map.title}
