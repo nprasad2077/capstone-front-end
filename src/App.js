@@ -40,6 +40,7 @@ const App = () => {
     ],
     _id: "63e4295ad0bb5bd18459cdc4"
 })
+  const asodURL = asod.hdurl
   const [sol, setSol] = useState(100)
   const [lat, setLat] = useState(0)
   const [long, setLong] = useState(0)
@@ -49,6 +50,8 @@ const App = () => {
   let epicDate = (( d => new Date(d.setDate(d.getDate()-2)) )(new Date)).toISOString().slice(0,10)
   const regex = /-/gi
   let date = epicDate.replace(regex, '/')
+
+  console.log(asodURL);
 
   const getLocation = () => {
     if (navigator.geolocation) {
@@ -142,6 +145,16 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
+  console.log(mongo)
+
+  const photoWall = mongo && (mongo.find((element) => element._id === '63e4295ad0bb5bd18459cdc4')).postPhoto
+
+
+
+
+  useEffect(() => {mongo && photoWall.push(asodURL)}, [asodURL, photoWall])
+
+
 
   useEffect(() => {
     getASOD()
@@ -153,8 +166,9 @@ const App = () => {
     getLocation()
     getForums()
     getMongo()
-    postASOD()
+    // postASOD()
   }, [])
+
 
 // Image and Video Search
   const getSearch = async () => {
@@ -169,6 +183,8 @@ const App = () => {
   const searchDetails = search.collection && search.collection.items
 
   const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}<br></br></Link>)
+
+  console.log(photoWall);
 
 
 
