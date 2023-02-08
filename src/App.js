@@ -51,8 +51,6 @@ const App = () => {
   }
 
   const showPosition = (position) => {
-    console.log(position.coords.latitude)
-    console.log(position.coords.longitude);
     setLat(position.coords.latitude)
     setLong(position.coords.longitude)
   }
@@ -123,6 +121,17 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
+  const getMongo = async () => {
+    const response = await axios({
+      method: 'get',
+      url: 'https://calm-brushlands-38440.herokuapp.com/'
+    })
+    .then(res => setMongo(res.data))
+    .catch(err => console.log(err))
+  }
+
+  console.log(mongo);
+
 
   useEffect(() => {
     getASOD()
@@ -133,6 +142,7 @@ const App = () => {
     getAstro()
     getLocation()
     getForums()
+    getMongo()
   }, [])
 
 // Image and Video Search

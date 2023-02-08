@@ -2,6 +2,7 @@ import React from 'react'
 
 const ASOD = ({asod}) => {
 
+
   return (
     <div class='mt-5 border-2 border-slate-300 content-center flex-col p-4 mx-5 bg-slate-800'>
       <h2 class='text-center text-sm'>Astronomy Picture of the Day</h2>
