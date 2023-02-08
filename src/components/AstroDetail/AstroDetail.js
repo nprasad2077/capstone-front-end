@@ -40,7 +40,14 @@ const AstroDetail = ({astro}) => {
   const showModal = () => { setShow(true) }
   const hideModal = () => { setShow(false) }
 
-  console.log(planetsArr);
+  console.log(astronaut);
+
+  const updateStack = () => {
+    updateInfo()
+    hideModal()
+    setTimeout(() => {window.location.reload()}, 1000)
+  }
+
 
 
   return (
@@ -71,11 +78,14 @@ const AstroDetail = ({astro}) => {
 
         <div class='flex flex-col items-center justify-center text-slate-50 space-y-4' >
           <div class='mt-6'></div>
-            <TextInput placeholder='Name' onChange={(e) => setName(e.target.value)} required={true} />
-            <TextInput placeholder='Favorite Planet' onChange={(e) => setFavoritePlanet(e.target.value)}/>
-            <TextInput placeholder='Photo URL' onChange={(e) => setPhotoUrl(e.target.value)} />
+          <label for="default-input" class="block mb-2 text-sm font-medium  dark:text-white">Name</label>
+            <TextInput placeholder= {astronaut.name} onChange={(e) => setName(e.target.value)} required={true}/>
+            <label for="default-input" class="block mb-2 text-sm font-medium  dark:text-white">Favorite Planet</label>
+            <TextInput placeholder={astronaut.favorite_planet} onChange={(e) => setFavoritePlanet(e.target.value)}/>
+            <label for="default-input" class="block mb-2 text-sm font-medium  dark:text-white">Photo URL</label>
+            <TextInput placeholder='Photo URL'  onChange={(e) => setPhotoUrl(e.target.value)} />
             {/* <TextInput placeholder='Favorite Space Objects' onChange={(e) => setPlanetsArr(e.target.value)}/> */}
-            <Button onClick={updateInfo}>Update</Button>
+            <Button onClick={updateStack}>Update</Button>
         </div>
 
 
