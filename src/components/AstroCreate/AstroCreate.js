@@ -12,6 +12,10 @@ const AstroCreate = () => {
 
 const navigate = useNavigate()
 
+const goBack = () => {
+  navigate(-1)
+}
+
 const [astroForm, setAstroForm] = useState({
   name: name,
   favorite_planet: favorite_planet,
@@ -46,6 +50,11 @@ const createAstronaut = async () => {
   }
 }
 
+const createStack = () => {
+  createAstronaut()
+  goBack()
+}
+
 console.log(astroForm);
 
 return (
@@ -69,7 +78,7 @@ return (
             <input onChange={handleInput} name='planets' value={astroForm.planets} type="text" id="default-input" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder='Other favorite space objects like stars, planets, satellites, galaxies, etc...'/>
         </div>
         <div class='flex items-center justify-center'>
-          <Button onClick={createAstronaut}>Submit</Button>
+          <Button onClick={createStack}>Submit</Button>
         </div>
       </div>
   </div>
