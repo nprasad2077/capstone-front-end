@@ -69,6 +69,7 @@ const updateStack = () => {
               {findForum.title}
           </h5>
           <p className="font-normal text-gray-700 dark:text-gray-400">
+            {findForum.preview_url}
           </p>
           <img  class='' src={findForum.photo} alt='forum post'></img>
         </Card>
