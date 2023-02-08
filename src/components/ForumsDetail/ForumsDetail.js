@@ -4,16 +4,22 @@ import { Button, Card } from 'flowbite-react'
 import ReactModal from 'react-modal';
 import { useState } from 'react';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
+
 
 const ForumsDetail = ({forums, astro}) => {
   const {id} = useParams()
   const [show, setShow] = useState(false)
-  console.log(forums, astro);
+  const navigate = useNavigate()
+  // console.log(forums, astro);
+  
 
   const findForum = forums && forums.find((forum) => forum.id === parseInt(id))
-  console.log(findForum);
+  // console.log(findForum.astronaut_id);
+  console.log('yo');
+  // console.log(findForum);
   const [postUpdate, SetPostUpdate] = useState({
-    astronaut_id: findForum.astronaut_id,
+    astronaut_id: findForum.astronaut_id && findForum.astronaut_id.toString(),
     title: findForum.title,
     photo: findForum.photo,
     preview_url: findForum.preview_url
@@ -57,13 +63,36 @@ const hideModal = () => { setShow(false) }
 const updateStack = () => {
   updateForumPost()
   hideModal()
+  setTimeout(() => window.location.reload(), 300)
 }
+
+const deleteStack = () => {
+  deleteForumPost()
+  navigate(-1)
+  setTimeout(() => window.location.reload(), 500)
+}
+
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    backgroundColor: '#1e293b',
+    border: '4px white solid',
+  },
+  // overlay: {
+  //   backgroundColor: 'black',
+  // },
+};
 
 
 
   return (
-    <div class='flex-col items-center justify-center content-center'>
-      <div class='w-96 self-center justify-center items-center flex'>
+    <div class='flex flex-col items-center justify-center content-center mt-10'>
+      <div class='w-96 self-center justify-center items-center flex flex-col'>
         <Card>
           <h5 className="text-2xl font-bold tracking-tight text-black">
               {findForum.title}
@@ -73,20 +102,28 @@ const updateStack = () => {
           </p>
           <img  class='' src={findForum.photo} alt='forum post'></img>
         </Card>
-        <Button onClick={showModal}>
-          Update Forum Post
-        </Button>
+        <div class='mt-10'>
+          <Button onClick={showModal}>
+            Update Forum Post
+          </Button>
+        </div>
       </ div >
-      <div>
-        <ReactModal isOpen={show}>
-          <h1>Update Forum Post</h1>
-          <Button onClick={hideModal}>X</Button>
-          <Button onClick={updateStack}>Update</Button>
-          <Button onClick={deleteForumPost} color='failure'>Delete</Button>
-          <div>
+      <div class=''>
+        <ReactModal isOpen={show} style={customStyles}>
+          <h1 class='font-semibold text-white text-center mb-4'>Update Forum Post</h1>
+          <div class='flex flex-col justify-center items-center'>
             <input type='text' value={postUpdate.title} onChange={(e) => SetPostUpdate({...postUpdate, title: e.target.value})}></input>
             <input type='text' value={postUpdate.photo} onChange={(e) => SetPostUpdate({...postUpdate, photo: e.target.value})}></input>
             <input type='text' value={postUpdate.preview_url} onChange={(e) => SetPostUpdate({...postUpdate, preview_url: e.target.value})}></input>
+            <div class='mt-6'>
+              <Button onClick={updateStack}>Update</Button>
+            </div>
+            <div class='mt-2'>
+              <Button onClick={deleteStack} color='failure'>Delete</Button>
+            </div>
+            <div class='mt-2'>
+              <Button color='failure' onClick={hideModal}>X</Button>
+            </div>
           </div>
         </ReactModal>
       </div>
