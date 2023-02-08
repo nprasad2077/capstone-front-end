@@ -34,6 +34,12 @@ const App = () => {
   const [persRover, setPersRover] = useState([])
   const [mediaForm, setMediaForm] = useState('')
   const [forums, SetForums] = useState('')
+  const [asodPhoto, SetAsodPhoto] = useState({
+    postPhoto: [
+        "https://parade.com/.image/t_share/MTkwNTgxMzk0NTAxNjc0ODc2/harry-pottery-special-hbo-max.jpg", "testing from react"
+    ],
+    _id: "63e4295ad0bb5bd18459cdc4"
+})
   const [sol, setSol] = useState(100)
   const [lat, setLat] = useState(0)
   const [long, setLong] = useState(0)
@@ -130,7 +136,11 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
-  console.log(mongo);
+  const postASOD = async () => {
+    const response = await axios.put('https://calm-brushlands-38440.herokuapp.com/update', asodPhoto)
+    .then(res => console.log(res))
+    .catch(err => console.log(err))
+  }
 
 
   useEffect(() => {
@@ -143,6 +153,7 @@ const App = () => {
     getLocation()
     getForums()
     getMongo()
+    postASOD()
   }, [])
 
 // Image and Video Search
