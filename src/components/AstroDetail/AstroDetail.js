@@ -48,6 +48,22 @@ const AstroDetail = ({astro}) => {
     setTimeout(() => {window.location.reload()}, 1000)
   }
 
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      backgroundColor: '#1e293b',
+      border: '4px white solid',
+    },
+    // overlay: {
+    //   backgroundColor: 'black',
+    // },
+  };
+
 
 
   return (
@@ -70,28 +86,26 @@ const AstroDetail = ({astro}) => {
         <Button color='failure' onClick={deleteInfo}>Delete Astronaut</Button>
       </div>
     </div>
+    <div class='bg-slate-900 w-1/2'>
+      <ReactModal isOpen={show} shouldCloseOnOverlayClick={true} shouldCloseOnEsc={true} onRequestClose={hideModal} style={customStyles} class='bg-slate-800'>
+        <div class='bg-slate-800'>
+          <h1 class='text-4xl font-bold text-center text-white mb-4'>Update Astronaut</h1>
 
-    <ReactModal isOpen={show} shouldCloseOnOverlayClick={true} shouldCloseOnEsc={true} onRequestClose={hideModal}>
-      <div class='bg-slate-700'>
-        <Button onClick={hideModal}>X</Button>
-        <h1 class='text-4xl font-bold text-center text-white mb-4'>Update Astronaut</h1>
-
-        <div class='flex flex-col items-center justify-center text-slate-50 space-y-4' >
-          <div class='mt-6'></div>
-          <label for="default-input" class="block mb-2 text-sm font-medium  dark:text-white">Name</label>
-            <TextInput placeholder= {astronaut.name} onChange={(e) => setName(e.target.value)} required={true}/>
-            <label for="default-input" class="block mb-2 text-sm font-medium  dark:text-white">Favorite Planet</label>
-            <TextInput placeholder={astronaut.favorite_planet} onChange={(e) => setFavoritePlanet(e.target.value)}/>
-            <label for="default-input" class="block mb-2 text-sm font-medium  dark:text-white">Photo URL</label>
-            <TextInput placeholder='Photo URL'  onChange={(e) => setPhotoUrl(e.target.value)} />
-            {/* <TextInput placeholder='Favorite Space Objects' onChange={(e) => setPlanetsArr(e.target.value)}/> */}
-            <Button onClick={updateStack}>Update</Button>
+          <div class='flex flex-col items-center justify-center text-slate-50 space-y-4' >
+            <div class='mt-6'></div>
+            <label for="default-input" class="block mb-2 text-sm font-medium  dark:text-white">Name</label>
+              <TextInput placeholder= {astronaut.name} onChange={(e) => setName(e.target.value)} required={true}/>
+              <label for="default-input" class="block mb-2 text-sm font-medium  dark:text-white">Favorite Planet</label>
+              <TextInput placeholder={astronaut.favorite_planet} onChange={(e) => setFavoritePlanet(e.target.value)}/>
+              <label for="default-input" class="block mb-2 text-sm font-medium  dark:text-white">Photo URL</label>
+              <TextInput placeholder='Photo URL'  onChange={(e) => setPhotoUrl(e.target.value)} />
+              {/* <TextInput placeholder='Favorite Space Objects' onChange={(e) => setPlanetsArr(e.target.value)}/> */}
+              <Button onClick={updateStack}>Update</Button>
+              <Button color='failure' onClick={hideModal}>X</Button>
+          </div>
         </div>
-
-
-
-      </div>
-    </ReactModal>
+      </ReactModal>
+    </div>
     
     </div>
   )
