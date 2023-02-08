@@ -41,7 +41,24 @@ const Forums = ({forums, astro}) => {
   const createStack = () => {
     createPost()
     hideModal()
+    window.location.reload()
   }
+
+  const customStyles = {
+    content: {
+      top: '50%',
+      left: '50%',
+      right: 'auto',
+      bottom: 'auto',
+      marginRight: '-50%',
+      transform: 'translate(-50%, -50%)',
+      backgroundColor: '#1e293b',
+      border: '4px white solid',
+    },
+    // overlay: {
+    //   backgroundColor: 'black',
+    // },
+  };
 
 
 
@@ -54,24 +71,25 @@ const Forums = ({forums, astro}) => {
         </Button>
       </div>
       <div>
-        <ReactModal isOpen={show}>
-          <div>
-            <Button color="failure" onClick={hideModal}> X </Button>
-          </div>
-          <div class='flex flex-col items-center justify-center'>
+        <ReactModal isOpen={show} style={customStyles}>
+          <div class='flex flex-col items-center justify-center mt-1'>
+            <p class='text-white text-lg font-semibold mb-4'>Create a Forum Post</p>
             <div class='flex items-center justify-center'>
               <input type='text' placeholder='Title' onChange={(e) => setForumData({...forumData, title: e.target.value})}></input>
             </div>
-            <div class='flex items-center justify-center'>
+            <div class='flex items-center justify-center mt-1'>
               <input type='text' placeholder='Photo URL' onChange={(e) => setForumData({...forumData, photo: e.target.value})}></input>
             </div>
-            <div class='flex items-center justify-center'>
+            <div class='flex items-center justify-center mt-1'>
               <input type='text' placeholder='Preview URL' onChange={(e) => setForumData({...forumData, preview_url: e.target.value})}></input>
             </div>
-            <div class='flex items-center justify-center'>
+            <div class='flex flex-col items-center justify-center mt-6'>
               <Button color="success" onClick={createStack}>
                 Create Forum Post
               </Button>
+              <div class='mt-2'>
+                <Button color="failure" onClick={hideModal}> X </Button>
+              </div>
             </div>
           </div>
 
