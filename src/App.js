@@ -178,7 +178,7 @@ const App = () => {
         <script src='../node_modules/flowbite/dist/flowbite.js' type='text/javascript' />
       </Helmet>
       <Routes>
-        <Route path='/' element={<Home asod={asod} mongoPut={mongoPut} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} getSearch={getSearch} setMediaInput={setMediaInput} mediaForm={mediaForm} setMediaForm={setMediaForm} date={date}/>} />
+        <Route path='/' element={<Home asod={asod} mongoSpread={mongoSpread} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} getSearch={getSearch} setMediaInput={setMediaInput} mediaForm={mediaForm} setMediaForm={setMediaForm} date={date}/>} />
         <Route path='/media/:index/' element={<MediaPlayer search={search} />} />
         <Route path='/globe/' element={<Globe lat={lat} long={long} setLong={setLong} setLat={setLat} />} />
         <Route path='/persrover/' element={<Perseverance persRover={persRover}/>} />
@@ -187,7 +187,7 @@ const App = () => {
         <Route path='/astronauts/:id' element={<AstroDetail astro={astro} getAstro={getAstro} />} />
         <Route path='/forums' element={<Forums forums={forums} astro={astro} getAstro={getAstro} />} />
         <Route path='/forums/:id' element={<ForumsDetail forums={forums} astro={astro} />} />
-        <Route path='/favorites/' element={<Favorites mongoSpread={mongoSpread} />} />
+        <Route path='/favorites/' element={<Favorites mongoFound={mongoFound} />} />
       </Routes>
       <Tail />
     </div>

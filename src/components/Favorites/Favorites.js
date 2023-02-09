@@ -1,9 +1,9 @@
 import React from 'react'
 
-const Favorites = ({mongoSpread}) => {
-    console.log(mongoSpread);
+const Favorites = ({mongoFound}) => {
+    console.log(mongoFound);
 
-    const asodMap = mongoSpread && mongoSpread.map((img) => <img class='m-4' alt='NASA ASOD' src={img}></img>)
+    const asodMap = mongoFound && mongoFound.map((img) => <img class='m-4' alt='NASA ASOD' src={img}></img>)
 
 
   return (
