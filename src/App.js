@@ -20,6 +20,7 @@ import AstroDetail from './components/AstroDetail/AstroDetail'
 import NavHeader from './components/NavHeader/NavHeader';
 import Forums from './components/Forums/Forums'
 import ForumsDetail from './components/ForumsDetail/ForumsDetail'
+import Favorites from './components/Favorites/Favorites'
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -44,6 +45,7 @@ const App = () => {
   const regex = /-/gi
   let date = epicDate.replace(regex, '/')
 
+
   const getLocation = () => {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(showPosition)
@@ -51,8 +53,6 @@ const App = () => {
   }
 
   const showPosition = (position) => {
-    console.log(position.coords.latitude)
-    console.log(position.coords.longitude);
     setLat(position.coords.latitude)
     setLong(position.coords.longitude)
   }
@@ -123,17 +123,14 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
-
-  useEffect(() => {
-    getASOD()
-    getNEO()
-    getRover()
-    getEPIC()
-    getPersRover()
-    getAstro()
-    getLocation()
-    getForums()
-  }, [])
+  const getMongo = async () => {
+    const response = await axios({
+      method: 'get',
+      url: 'https://calm-brushlands-38440.herokuapp.com/'
+    })
+    .then(res => setMongo(res.data))
+    .catch(err => console.log(err))
+  }
 
 // Image and Video Search
   const getSearch = async () => {
@@ -150,7 +147,26 @@ const App = () => {
   const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}<br></br></Link>)
 
 
+  useEffect(() => {
+    getASOD()
+    getNEO()
+    getRover()
+    getEPIC()
+    getPersRover()
+    getAstro()
+    getLocation()
+    getForums()
+    getMongo()
+  }, [])
 
+  console.log(mongo)
+  const mongoFound = mongo && ((mongo.find((element) => element.name === 'ASOD')).postPhoto)
+  let mongoSpread = mongo && [...mongoFound, asod.hdurl]
+  const mongoPut = mongo && {_id: '63e4295ad0bb5bd18459cdc4', postPhoto: mongoSpread}
+  console.log(asod);
+  console.log(mongoFound);
+  console.log(mongoSpread);
+  // console.log(mongoPut);
 
 
   return (
@@ -162,7 +178,7 @@ const App = () => {
         <script src='../node_modules/flowbite/dist/flowbite.js' type='text/javascript' />
       </Helmet>
       <Routes>
-        <Route path='/' element={<Home asod={asod} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} getSearch={getSearch} setMediaInput={setMediaInput} mediaForm={mediaForm} setMediaForm={setMediaForm} date={date}/>} />
+        <Route path='/' element={<Home asod={asod} mongoSpread={mongoSpread} eonet={eonet} neo={neo} rover={rover} today={today} epic={epic} roverDate={roverDate} search={search} sol={sol} setSearch={setSearch} searchMapped={searchMapped} mediaInput={mediaInput} getSearch={getSearch} setMediaInput={setMediaInput} mediaForm={mediaForm} setMediaForm={setMediaForm} date={date}/>} />
         <Route path='/media/:index/' element={<MediaPlayer search={search} />} />
         <Route path='/globe/' element={<Globe lat={lat} long={long} setLong={setLong} setLat={setLat} />} />
         <Route path='/persrover/' element={<Perseverance persRover={persRover}/>} />
@@ -171,6 +187,7 @@ const App = () => {
         <Route path='/astronauts/:id' element={<AstroDetail astro={astro} getAstro={getAstro} />} />
         <Route path='/forums' element={<Forums forums={forums} astro={astro} getAstro={getAstro} />} />
         <Route path='/forums/:id' element={<ForumsDetail forums={forums} astro={astro} />} />
+        <Route path='/favorites/' element={<Favorites mongoFound={mongoFound} />} />
       </Routes>
       <Tail />
     </div>
