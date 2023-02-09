@@ -20,6 +20,7 @@ import AstroDetail from './components/AstroDetail/AstroDetail'
 import NavHeader from './components/NavHeader/NavHeader';
 import Forums from './components/Forums/Forums'
 import ForumsDetail from './components/ForumsDetail/ForumsDetail'
+import Favorites from './components/Favorites/Favorites'
 
 const App = () => {
   const [asod, setAsod] = useState('')
@@ -186,6 +187,7 @@ const App = () => {
         <Route path='/astronauts/:id' element={<AstroDetail astro={astro} getAstro={getAstro} />} />
         <Route path='/forums' element={<Forums forums={forums} astro={astro} getAstro={getAstro} />} />
         <Route path='/forums/:id' element={<ForumsDetail forums={forums} astro={astro} />} />
+        <Route path='/favorites/' element={<Favorites mongoSpread={mongoSpread} />} />
       </Routes>
       <Tail />
     </div>
