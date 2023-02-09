@@ -5,11 +5,11 @@ import ASOD from '../ASOD/ASOD'
 import EONET from '../Asteroids/Asteroids'
 import Rover from '../Rover/Rover'
 
-const Dashboard = ({asod, eonet, neo, rover, today, epic, roverDate, sol}) => {
+const Dashboard = ({asod, mongoPut, eonet, neo, rover, today, epic, roverDate, sol}) => {
   return (
     <div class='flex'>
       <div class='flex-1'>
-        <ASOD asod={asod}/>
+        <ASOD asod={asod} mongoPut={mongoPut}/>
       </div>
       <div class='flex-1'>
         <EONET neo={neo} today={today}/>
