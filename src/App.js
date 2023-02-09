@@ -34,13 +34,6 @@ const App = () => {
   const [persRover, setPersRover] = useState([])
   const [mediaForm, setMediaForm] = useState('')
   const [forums, SetForums] = useState('')
-  const [asodPhoto, SetAsodPhoto] = useState({
-    postPhoto: [
-        "https://parade.com/.image/t_share/MTkwNTgxMzk0NTAxNjc0ODc2/harry-pottery-special-hbo-max.jpg", "testing from react"
-    ],
-    _id: "63e4295ad0bb5bd18459cdc4"
-})
-  const asodURL = asod.hdurl
   const [sol, setSol] = useState(100)
   const [lat, setLat] = useState(0)
   const [long, setLong] = useState(0)
@@ -51,7 +44,6 @@ const App = () => {
   const regex = /-/gi
   let date = epicDate.replace(regex, '/')
 
-  console.log(asodURL);
 
   const getLocation = () => {
     if (navigator.geolocation) {
@@ -139,37 +131,6 @@ const App = () => {
     .catch(err => console.log(err))
   }
 
-  const postASOD = async () => {
-    const response = await axios.put('https://calm-brushlands-38440.herokuapp.com/update', asodPhoto)
-    .then(res => console.log(res))
-    .catch(err => console.log(err))
-  }
-
-  console.log(mongo)
-
-  const photoWall = mongo && (mongo.find((element) => element._id === '63e4295ad0bb5bd18459cdc4')).postPhoto
-
-
-
-
-  useEffect(() => {mongo && photoWall.push(asodURL)}, [asodURL, photoWall])
-
-
-
-  useEffect(() => {
-    getASOD()
-    getNEO()
-    getRover()
-    getEPIC()
-    getPersRover()
-    getAstro()
-    getLocation()
-    getForums()
-    getMongo()
-    // postASOD()
-  }, [])
-
-
 // Image and Video Search
   const getSearch = async () => {
     const response = await axios({
@@ -184,10 +145,27 @@ const App = () => {
 
   const searchMapped = search.collection && searchDetails.map((search, index) => <Link to={'media/'+ index}>{search.data[0].title}<br></br></Link>)
 
-  console.log(photoWall);
 
+  useEffect(() => {
+    getASOD()
+    getNEO()
+    getRover()
+    getEPIC()
+    getPersRover()
+    getAstro()
+    getLocation()
+    getForums()
+    getMongo()
+  }, [])
 
-
+  console.log(mongo)
+  const mongoFound = mongo && ((mongo.find((element) => element.name === 'ASOD')).postPhoto)
+  let mongoSpread = mongo && [...mongoFound, asod.hdurl]
+  const mongoPut = mongo && {_id: '63e4295ad0bb5bd18459cdc4', postPhoto: mongoSpread}
+  console.log(asod);
+  console.log(mongoFound);
+  console.log(mongoSpread);
+  console.log(mongoPut);
 
 
   return (

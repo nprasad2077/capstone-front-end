@@ -2,6 +2,8 @@ import React from 'react'
 
 const ASOD = ({asod}) => {
 
+  // console.log(asod);
+
 
   return (
     <div class='mt-5 border-2 border-slate-300 content-center flex-col p-4 mx-5 bg-slate-800'>
