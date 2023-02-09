@@ -6,13 +6,13 @@ import { useEffect } from 'react';
 import { Button } from 'flowbite-react';
 import './asod.css'
 
-const ASOD = ({asod, mongoFound}) => {
+const ASOD = ({asod, mongoSpread}) => {
 
   // console.log(asod);
-  console.log('hello', mongoFound);
+  console.log('hello', mongoSpread);
 
   const putASOD = () => {
-    axios.put('https://calm-brushlands-38440.herokuapp.com/update', mongoFound)
+    axios.put('https://calm-brushlands-38440.herokuapp.com/update', {_id: '63e4295ad0bb5bd18459cdc4', postPhoto: mongoSpread})
     .then(res => {console.log(res.data)})
     .catch(err => {console.log(err)})
   }
