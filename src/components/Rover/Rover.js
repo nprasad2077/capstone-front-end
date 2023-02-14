@@ -1,3 +1,4 @@
+/* eslint-disable jsx-a11y/alt-text */
 import React from 'react'
 import { useState } from 'react'
 import { Button } from 'flowbite-react';
@@ -53,14 +54,12 @@ const Rover = ({rover, roverDate, sol}) => {
       idCHEM.push(rov.id)
       dateCHEM.push(rov.earth_date)
     }
-    if (rov.camera.name === 'NAVCAM') { // Sorts into the navigational camera dataset.
+    if (rov.camera.name === 'NAVCAM') { // Sorts into the front hazard avoidance system camera dataset.
       NAVCAM.push(rov.img_src)
       idNAVCAM.push(rov.id)
       dateNAVCAM.push(rov.earth_date)
     }
   }
-
-  const roverMapped = rover && roverARR.map((rovers) => parseRovers(rovers))
 
   function randomFHAZ () {
     const random = Math.floor(Math.random() * FHAZ.length)
@@ -107,13 +106,11 @@ const Rover = ({rover, roverDate, sol}) => {
     setDisplayCHEM('')
   }
 
-  const NAVCAMimg = NAVCAM.map((map) =>  ({original: map, thumbnail: map}))
-  const CHEMimg = CHEM.map((chem) => ({original: chem, thumbnail: chem}))
 
   return (
     <div class='border-2 border-slate-300 content-center flex flex-col object-contain p-5 mx-5 mt-5 bg-slate-800'>
       <h2 class='text-center text-2xl subpixel-antialiased font-bold text-orange-500'>Mars Rover</h2>
-      <iframe class='mt-6 object-scale-down w-auto' src='https://mars.nasa.gov/layout/embed/model/?s=6' width='800' height='450' scrolling='no' frameBorder='0' allowFullScreen></iframe>
+      <iframe title='Perseverance Rover 3D model' class='mt-6 object-scale-down w-auto' src='https://mars.nasa.gov/layout/embed/model/?s=6' width='800' height='450' scrolling='no' frameBorder='0' allowFullScreen></iframe>
       <div class='mt-10 w-auto text-center justify-center flex'>
         <Button className='wide-button color'  onClick={randomNAVCAM}>NAVCAM</Button>
         <Button className='wide-button color-2' onClick={randomFHAZ}>FHAZ</Button>
