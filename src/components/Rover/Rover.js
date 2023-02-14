@@ -1,5 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
-import React from 'react'
+import React, { useEffect } from 'react'
 import { useState } from 'react'
 import { Button } from 'flowbite-react';
 import './rover.css'
@@ -9,6 +9,7 @@ import './rover.css'
 import Accord from '../Accord/Accord'
 
 const Rover = ({rover, roverDate, sol}) => {
+  const roverARR = rover.photos
   const FHAZ = []     // arrays created to store images of different Mars rover cameras.
   const RHAZ = []
   const MAST = []
@@ -59,6 +60,8 @@ const Rover = ({rover, roverDate, sol}) => {
       dateNAVCAM.push(rov.earth_date)
     }
   }
+
+  const roverMapped = rover && roverARR.map((rovers) => parseRovers(rovers))  // Parses out only the photos from the rover dataset.
 
   function randomFHAZ () {      // When the FHAZ button is clicked, a random image from the FHAZ camera dataset is displayed to the user.
     const random = Math.floor(Math.random() * FHAZ.length)  // calculates a random array position from the total length of images in the dataset.
