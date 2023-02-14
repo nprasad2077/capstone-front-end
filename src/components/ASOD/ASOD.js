@@ -8,8 +8,6 @@ import './asod.css'
 
 const ASOD = ({asod, mongoSpread}) => {
 
-  // console.log(asod);
-  console.log('hello', mongoSpread);
 
   const putASOD = () => {
     axios.put('https://calm-brushlands-38440.herokuapp.com/update', {_id: '63e4295ad0bb5bd18459cdc4', postPhoto: mongoSpread})
