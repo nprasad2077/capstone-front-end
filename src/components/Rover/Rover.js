@@ -32,28 +32,28 @@ const Rover = ({rover, roverDate, sol}) => {
   const solDate = sol.toString()
 
 
-  function parseRovers(rov) {
-    if (rov.camera.name === 'FHAZ') {
+  function parseRovers(rov) {           // This function parses through the entire rover dataset and sorts the image, rover ID, and date taken into their respective datasets according to camera position.
+    if (rov.camera.name === 'FHAZ') {   // Sorts into the front hazard avoidance system camera dataset.
       FHAZ.push(rov.img_src)
       idFHAZ.push(rov.id)
       dateFHAZ.push(rov.earth_date)
     }
-    if (rov.camera.name === 'RHAZ') {
+    if (rov.camera.name === 'RHAZ') { // Sorts into the rear hazard avoidance system camera dataset.
       RHAZ.push(rov.img_src)
       idRHAZ.push(rov.id)
       dateRHAZ.push(rov.earth_date)
     }
-    if (rov.camera.name === 'MAST') {
+    if (rov.camera.name === 'MAST') { // Sorts into the mast camera dataset.
       MAST.push(rov.img_src)
       idMAST.push(rov.id)
       dateMAST.push(rov.earth_date)
     }
-    if (rov.camera.name === 'CHEMCAM') {
+    if (rov.camera.name === 'CHEMCAM') { // Sorts into the chemical camera (CHEMCAM) dataset.
       CHEM.push(rov.img_src)
       idCHEM.push(rov.id)
       dateCHEM.push(rov.earth_date)
     }
-    if (rov.camera.name === 'NAVCAM') {
+    if (rov.camera.name === 'NAVCAM') { // Sorts into the navigational camera dataset.
       NAVCAM.push(rov.img_src)
       idNAVCAM.push(rov.id)
       dateNAVCAM.push(rov.earth_date)
@@ -64,7 +64,6 @@ const Rover = ({rover, roverDate, sol}) => {
 
   function randomFHAZ () {
     const random = Math.floor(Math.random() * FHAZ.length)
-    // console.log(FHAZ[random]);
     setDisplayFHAZ(FHAZ[random])
     setDisplayNAVCAM('')
     setDisplayRHAZ('')
@@ -74,7 +73,6 @@ const Rover = ({rover, roverDate, sol}) => {
 
   function randomRHAZ () {
     const random = Math.floor(Math.random() * RHAZ.length)
-    // console.log(RHAZ[random]);
     setDisplayRHAZ(RHAZ[random])
     setDisplayFHAZ('')
     setDisplayNAVCAM('')
@@ -84,7 +82,6 @@ const Rover = ({rover, roverDate, sol}) => {
 
   function randomMAST () {
     const random = Math.floor(Math.random() * MAST.length)
-    // console.log(MAST[random]);
     setDisplayMAST(MAST[random])
     setDisplayFHAZ('')
     setDisplayRHAZ('')
