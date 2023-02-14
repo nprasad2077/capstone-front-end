@@ -9,23 +9,22 @@ import './rover.css'
 import Accord from '../Accord/Accord'
 
 const Rover = ({rover, roverDate, sol}) => {
-  const roverARR = rover.photos
-  const FHAZ = []
+  const FHAZ = []     // arrays created to store images of different Mars rover cameras.
   const RHAZ = []
   const MAST = []
   const CHEM = []
   const NAVCAM = []
-  const idFHAZ = []
+  const idFHAZ = []   // arrays created to store rover ids for images.
   const idRHAZ = []
   const idMAST = []
   const idCHEM = []
   const idNAVCAM = []
-  const dateFHAZ = []
+  const dateFHAZ = []   // arrays created to store dates of images taken.
   const dateRHAZ = []
   const dateMAST = []
   const dateCHEM = []
   const dateNAVCAM = []
-  const [displayFHAZ, setDisplayFHAZ] = useState('')
+  const [displayFHAZ, setDisplayFHAZ] = useState('')    // variables to store image source data for respective camera positions.
   const [displayRHAZ, setDisplayRHAZ] = useState('')
   const [displayMAST, setDisplayMAST] = useState('')
   const [displayCHEM, setDisplayCHEM] = useState('')
@@ -61,16 +60,16 @@ const Rover = ({rover, roverDate, sol}) => {
     }
   }
 
-  function randomFHAZ () {
-    const random = Math.floor(Math.random() * FHAZ.length)
-    setDisplayFHAZ(FHAZ[random])
-    setDisplayNAVCAM('')
+  function randomFHAZ () {      // When the FHAZ button is clicked, a random image from the FHAZ camera dataset is displayed to the user.
+    const random = Math.floor(Math.random() * FHAZ.length)  // calculates a random array position from the total length of images in the dataset.
+    setDisplayFHAZ(FHAZ[random])  // set image element in document to the randomized rover image and displays to user.
+    setDisplayNAVCAM('') // sets rest of the images to blank so that only the FHAZ image is displayed to the user.
     setDisplayRHAZ('')
     setDisplayMAST('')
     setDisplayCHEM('')
   }
 
-  function randomRHAZ () {
+  function randomRHAZ () {    // When the RHAZ button is clicked, a random image from the RHAZ camera dataset is displayed to the user.
     const random = Math.floor(Math.random() * RHAZ.length)
     setDisplayRHAZ(RHAZ[random])
     setDisplayFHAZ('')
@@ -79,7 +78,7 @@ const Rover = ({rover, roverDate, sol}) => {
     setDisplayCHEM('')
   }
 
-  function randomMAST () {
+  function randomMAST () {    // When the MAST button is clicked, a random image from the mast camera dataset is displayed to the user.
     const random = Math.floor(Math.random() * MAST.length)
     setDisplayMAST(MAST[random])
     setDisplayFHAZ('')
@@ -88,7 +87,7 @@ const Rover = ({rover, roverDate, sol}) => {
     setDisplayCHEM('')
   }
 
-  function randomCHEM () {
+  function randomCHEM () {    // When the CHEM button is clicked, a random image from the chem camera dataset is displayed to the user.
     const random = Math.floor(Math.random() * CHEM.length)
     setDisplayCHEM(CHEM[random])
     setDisplayFHAZ('')
@@ -97,7 +96,7 @@ const Rover = ({rover, roverDate, sol}) => {
     setDisplayNAVCAM('')
   }
 
-  function randomNAVCAM () {
+  function randomNAVCAM () {    // When the NAVCAM button is clicked, a random image from the navigation camera dataset is displayed to the user.
     const random = Math.floor(Math.random() * NAVCAM.length)
     setDisplayNAVCAM(NAVCAM[random])
     setDisplayFHAZ('')
