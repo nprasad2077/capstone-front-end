@@ -53,6 +53,7 @@ const createAstronaut = async () => {
 const createStack = () => {
   createAstronaut()
   goBack()
+  setTimeout(() => window.location.reload(), 300)
 }
 
 
