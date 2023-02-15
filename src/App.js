@@ -159,7 +159,7 @@ const App = () => {
     getMongo()
   }, [])
 
-  console.log(mongo)
+
   const mongoFound = mongo && ((mongo.find((element) => element.name === 'ASOD')).postPhoto)
   let mongoSpread = mongo && [...mongoFound, asod.hdurl]
   const mongoPut = mongo && {_id: '63e4295ad0bb5bd18459cdc4', postPhoto: mongoSpread}

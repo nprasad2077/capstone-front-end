@@ -26,7 +26,6 @@ const superCamImages = []
 const url = 'https://api.nasa.gov/mars-photos/api/v1/rovers/perseverance/photos?sol=1&api_key=DEMO_KEY'
 
 const Perseverance = ({persRover}) => {
-  console.log(persRover.photos);
   const navcamLeft = []
   const navcamLeftDate = []
   const mastZoomRight = []
@@ -71,18 +70,12 @@ const Perseverance = ({persRover}) => {
 
   const persRoverMapped = persRover.photos && persRover.photos.map((rover) => parsePersRover(rover))
 
-  console.log(navcamLeftDate);
-  // console.log(skycam, mastZoomRightDate);
-  console.log(supercam);
-
   const navcamLeftMap = persRover.photos && navcamLeft.map((cam) => navcamLeftImages.push({original: cam, thumbnail: cam}))
   const rightMastMap = persRover.photos && mastZoomRight.map((cam) => mastZoomRightImages.push({original: cam, thumbnail: cam}))
   const leftMastMap = persRover.photos && mastZoomLeft.map(cam => mastZoomLeftImages.push({original: cam, thumbnail: cam}))
   const skycamMap = persRover.photos && skycam.map(cam => skycamImages.push({original: cam, thumbnail: cam}))
   const fhazLeftMap = persRover.photos && fhazLeft.map(cam => fhazLeftImages.push({original: cam, thumbnail: cam}))
   const supercamMap = persRover.photos && supercam.map(cam => superCamImages.push({original: cam, thumbnail: cam}))
-
-  // console.log(mastZoomLeftImages);
 
 
 

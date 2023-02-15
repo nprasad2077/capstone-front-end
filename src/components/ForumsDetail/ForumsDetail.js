@@ -11,13 +11,9 @@ const ForumsDetail = ({forums, astro}) => {
   const {id} = useParams()
   const [show, setShow] = useState(false)
   const navigate = useNavigate()
-  // console.log(forums, astro);
-  
 
   const findForum = forums && forums.find((forum) => forum.id === parseInt(id))
-  // console.log(findForum.astronaut_id);
-  console.log('yo');
-  // console.log(findForum);
+
   const [postUpdate, SetPostUpdate] = useState({
     astronaut_id: findForum.astronaut_id && findForum.astronaut_id.toString(),
     title: findForum.title,
@@ -57,6 +53,7 @@ const deleteForumPost = () => {
     if (response.status === 204){alert('Forum Post Deleted')} 
   })
 }
+
 const showModal = () => { setShow(true) }
 const hideModal = () => { setShow(false) }
 
@@ -83,12 +80,7 @@ const customStyles = {
     backgroundColor: '#1e293b',
     border: '4px white solid',
   },
-  // overlay: {
-  //   backgroundColor: 'black',
-  // },
 };
-
-
 
   return (
     <div class='flex flex-col items-center justify-center content-center mt-10'>

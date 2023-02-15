@@ -55,7 +55,6 @@ const createStack = () => {
   goBack()
 }
 
-console.log(astroForm);
 
 return (
   <div class='flex-col items-center justify-center w-full text-center'>

@@ -14,9 +14,6 @@ const Forums = ({forums, astro}) => {
   const postURL = 'https://polar-everglades-56224.herokuapp.com/forums/'
   const [show, setShow] = useState(false)
 
-  console.log(forums, astro);
-  console.log(forumData);
-
   const forumsMap = forums && forums.map((map) => <Link to={'/forums/' + map.id}><div class='w-96 mt-2'>
   <Card>
     <h5 className="text-2xl font-bold tracking-tight text-black">
@@ -41,7 +38,7 @@ const Forums = ({forums, astro}) => {
   const createStack = () => {
     createPost()
     hideModal()
-    window.location.reload()
+    setTimeout(() => window.location.reload(), 300)
   }
 
   const customStyles = {
@@ -55,9 +52,6 @@ const Forums = ({forums, astro}) => {
       backgroundColor: '#1e293b',
       border: '4px white solid',
     },
-    // overlay: {
-    //   backgroundColor: 'black',
-    // },
   };
 
 
@@ -81,7 +75,7 @@ const Forums = ({forums, astro}) => {
               <input type='text' placeholder='Photo URL' onChange={(e) => setForumData({...forumData, photo: e.target.value})}></input>
             </div>
             <div class='flex items-center justify-center mt-1'>
-              <input type='text' placeholder='Preview URL' onChange={(e) => setForumData({...forumData, preview_url: e.target.value})}></input>
+              <input type='text' placeholder='Post text' onChange={(e) => setForumData({...forumData, preview_url: e.target.value})}></input>
             </div>
             <div class='flex flex-col items-center justify-center mt-6'>
               <Button color="success" onClick={createStack}>
