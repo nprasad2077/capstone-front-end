@@ -11,7 +11,7 @@
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "axios": "^1.2.1",
-    "cesium": "^1.100.0",
+    "cesium": "^1.102.0",
     "craco-cesium": "^1.0.0",
     "craco-plugin-react-hot-reload": "^0.1.0",
     "flowbite": "^1.5.5",

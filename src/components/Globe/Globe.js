@@ -1,44 +1,39 @@
 import React from 'react'
-import {Cartesian3, createWorldTerrain} from 'cesium'
-import { Color } from "cesium";
-import { Viewer, Entity, PointGraphics, EntityDescription, CameraFlyTo, ImageryLayer} from "resium";
-import { useState } from 'react';
-import { ArcGisMapServerImageryProvider } from 'cesium';
+import {Cartesian3} from 'cesium'
+import { Viewer, Entity, EntityDescription, CameraFlyTo, PointGraphics} from "resium";
 
 
-const Globe = ({lat, long, setLat, setLong}) => {
-  const [pixelNum, setPixelNum] = useState(20)
-  const [latChange, setLatChange] = useState(0)
-  const [longChange, setLongChange] = useState(0)
+
+const Globe = ({lat, long}) => {
+  const point = {pixelSize: 10}
+  const globeStyle = {
+    position: "absolute",
+    top: 72,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  }
 
   const position = Cartesian3.fromDegrees( long, lat, 1000)
+  const positionTwo = Cartesian3.fromDegrees( -74, 40, 1000)
 
-  const terrtainProvider = createWorldTerrain({
-        requestWaterMask : true,
-        requestVertexNormals : true
-  })
 
-  const latpos = (e) => {
-    setLatChange(parseInt(e.target.value))
-  }
-
-  const longpos = (e) => {
-    setLongChange(parseInt(e.target.value))
-  }
-
-  const positionChange = (e) => {
-    e.preventDefault()
-    setLat(latChange)
-    setLong(longChange)
-  }
 
 
   return (
-    <div class='text-center'>
-      <Viewer fullscreenButton homeButton={true} terrtainProvider={terrtainProvider}>
-        <CameraFlyTo duration={5} destination={position} once={'once'} />
-      </Viewer>
-    </div>
+  
+      <div class='w-full h-screen'>
+        <Viewer style={globeStyle} homeButton={true}>
+          <CameraFlyTo duration={5} destination={position}>
+          <Entity>
+            <PointGraphics pixelSize={10} />
+            <EntityDescription>
+              <h1>Test</h1>
+            </EntityDescription>
+          </Entity>
+          </CameraFlyTo>
+        </Viewer>
+      </div>
   )
 }
 
