@@ -1362,7 +1362,7 @@
 
 "@hot-loader/react-dom@^17.0.2":
   version "17.0.2"
-  resolved "https://registry.npmjs.org/@hot-loader/react-dom/-/react-dom-17.0.2.tgz"
+  resolved "https://registry.yarnpkg.com/@hot-loader/react-dom/-/react-dom-17.0.2.tgz#0b24e484093e8f97eb5c72bebdda44fc20bc8400"
   integrity sha512-G2RZrFhsQClS+bdDh/Ojpk3SgocLPUGnvnJDTQYnmKSSwXtU+Yh+8QMs+Ia3zaAvBiOSpIIDSUxuN69cvKqrWg==
   dependencies:
     loose-envify "^1.1.0"
@@ -4220,7 +4220,7 @@ craco-cesium@^1.0.0:
 
 craco-plugin-react-hot-reload@^0.1.0:
   version "0.1.0"
-  resolved "https://registry.npmjs.org/craco-plugin-react-hot-reload/-/craco-plugin-react-hot-reload-0.1.0.tgz"
+  resolved "https://registry.yarnpkg.com/craco-plugin-react-hot-reload/-/craco-plugin-react-hot-reload-0.1.0.tgz#f044daf0ce5993b65404e1504e62efa18ea7aca8"
   integrity sha512-g211hDOwaZ4XAyKiGOSSAhyNw4eKzZYiCXXrr1iQd07bONV3o+ciD/wOZGpmkCaI+J4Hpv2yIQWlag/ds+SL6g==
   dependencies:
     "@craco/craco" "^5.2.4"
@@ -9738,7 +9738,7 @@ react-helmet@^6.1.0:
 
 react-hot-loader@^4.13.1:
   version "4.13.1"
-  resolved "https://registry.npmjs.org/react-hot-loader/-/react-hot-loader-4.13.1.tgz"
+  resolved "https://registry.yarnpkg.com/react-hot-loader/-/react-hot-loader-4.13.1.tgz#979fd7598e27338b3faffae6ed01c65374dace5e"
   integrity sha512-ZlqCfVRqDJmMXTulUGic4lN7Ic1SXgHAFw7y/Jb7t25GBgTR0fYAJ8uY4mrpxjRyWGWmqw77qJQGnYbzCvBU7g==
   dependencies:
     fast-levenshtein "^2.0.6"
