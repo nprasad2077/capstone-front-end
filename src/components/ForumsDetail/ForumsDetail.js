@@ -25,6 +25,7 @@ const ForumsDetail = ({forums, astro}) => {
     preview_url: findForum.preview_url
   })
 
+
   const forumsMapDetail = forums && forums.map((map) => <div class='w-96 self-center'>
   <Card>
     <h5 className="text-2xl font-bold tracking-tight text-black">
@@ -83,9 +84,6 @@ const customStyles = {
     backgroundColor: '#1e293b',
     border: '4px white solid',
   },
-  // overlay: {
-  //   backgroundColor: 'black',
-  // },
 };
 
 

@@ -14,8 +14,16 @@ const Forums = ({forums, astro}) => {
   const postURL = 'https://polar-everglades-56224.herokuapp.com/forums/'
   const [show, setShow] = useState(false)
 
-  console.log(forums, astro);
+  // const handleForumCreate = (e) => {
+  //   const target = e.target
+  //   const value = target.value
+  //   const name = target.name
+
+  //   setForumData(...forumData, )
+  // }
   console.log(forumData);
+
+
 
   const forumsMap = forums && forums.map((map) => <Link to={'/forums/' + map.id}><div class='w-96 mt-2'>
   <Card>
@@ -41,7 +49,7 @@ const Forums = ({forums, astro}) => {
   const createStack = () => {
     createPost()
     hideModal()
-    window.location.reload()
+    setTimeout(() => window.location.reload(), 300)
   }
 
   const customStyles = {
@@ -55,9 +63,6 @@ const Forums = ({forums, astro}) => {
       backgroundColor: '#1e293b',
       border: '4px white solid',
     },
-    // overlay: {
-    //   backgroundColor: 'black',
-    // },
   };
 
 
