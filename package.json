@@ -2,6 +2,9 @@
   "name": "capstone-front-end",
   "version": "0.1.0",
   "private": true,
+  "engines": {
+    "node": ">=24.22.1"
+  },
   "dependencies": {
     "@craco/craco": "^7.0.0",
     "@headlessui/react": "^1.7.7",
